@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout\images\dog-doctor.png" />
+    <Content Include="Layout\images\dogwork.png" />
     <Content Include="Layout\images\slide-cachorro.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">

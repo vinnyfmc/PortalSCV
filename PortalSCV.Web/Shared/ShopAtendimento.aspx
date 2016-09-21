@@ -3,18 +3,28 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row" style="margin-top:150px">
-        <div class="col-lg-6">
+    <div class="row" style="margin-top:50px">
+        <div class="col-lg-7">
             <a href="#" >
                 <img src="../Layout/images/slide-cachorro.png" width="300" height="174" alt="Shop" />
             </a>
             <h1 style="margin-left:100px">SHOP</h1>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <a href="#" >
                 <img src="../Layout/images/dog-doctor.png" width="174" height="174"  alt="Atendimento" />
             </a>
             <h1>ATENDIMENTO</h1>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-3">
+            <a href="#" >
+                <img src="../Layout/images/dogwork.png" width="302" height="174"  alt="Administrativo" />
+            </a>
+            <h1>ADMINISTRATIVO</h1>
         </div>
     </div>
 
