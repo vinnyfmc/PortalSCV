@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="PortalSCV.Shared.Principal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../Layout/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link href="../Layout/css/sb-admin.css" rel="stylesheet" />
+   
+    <!-- Custom Fonts -->
+    <link href="../Layout/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Chosen Autocomplete -->
+    <link href="../Layout/js/plugins/chosen_Autocomplete/chosen.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="../Layout/js/jquery-2.2.4.min.js"></script>
+   
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../Layout/js/bootstrap.min.js"></script>
+
+    <!--Chosen Autocomplete -->
+    <script src="../Layout/js/plugins/chosen_Autocomplete/chosen.jquery.min.js"></script>
+    
+    <!--Mask Input -->
+    <script src="../Layout/js/plugins/mask/jquery.mask.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".chosen-select").chosen({ width: '100%', no_results_text: "Nenhum resultado foi encontrado!" });
+            $(".chosen-single").css("height", "35px");
+            $(".chosen-single span, .chosen-single div b").css("margin-top", "5px");
+
+            $.fn.MensagemModal = function (tipo, mensagem)
+            {
+                var css = "alert alert-info";
+
+                if (tipo == 1)
+                    css = "alert alert-success";
+                if (tipo == 2)
+                    css = "alert alert-warning";
+                if (tipo == 3)
+                    css = "alert alert-danger";
+
+                $("#DivMensagemModal").removeClass();
+                $("#DivMensagemModal").addClass(css);
+                $("#MensagemModal").html(mensagem);
+                $("#ModalMensagemGenerica").modal('toggle');
+            }
+
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <asp:ScriptManager runat="server" ID="ScriptManagerPage"></asp:ScriptManager>
+        <div id="Master_Body" runat="server">
+
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <div class="modal fade" id="ModalMensagemGenerica" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Portal SCV</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="DivMensagemModal" class="alert alert-success">
+                        <span id="MensagemModal"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    </form>
+</body>
+</html>
