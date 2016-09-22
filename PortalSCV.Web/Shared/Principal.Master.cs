@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PortalSCV.Dominio;
 
 namespace PortalSCV.Shared
 {
@@ -11,7 +12,24 @@ namespace PortalSCV.Shared
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            FuncionarioModel oFuncionario = new FuncionarioModel();
 
+            string path = System.Web.HttpContext.Current.Request.Url.AbsolutePath;
+            System.IO.FileInfo info = new System.IO.FileInfo(path);
+            if (info.Name != "Index.aspx")
+            {
+                if (Session["objFuncionario"] == null)
+                    Response.Redirect("~/Index.aspx");
+            }
+
+            if (!IsPostBack)
+            {
+                if (info.Name != "Index.aspx")
+                {
+                    oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+                    txtEmailUsuario.Text = oFuncionario.Nome;
+                }
+            }
         }
     }
 }

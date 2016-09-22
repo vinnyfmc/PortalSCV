@@ -16,12 +16,11 @@
             </a>
             <h1>ATENDIMENTO</h1>
         </div>
-        
     </div>
 
     <div class="row">
         <div class="col-lg-4 col-lg-offset-3">
-            <a href="#" >
+            <a href="../Funcionario/FuncionarioList.aspx" >
                 <img src="../Layout/images/dogwork.png" width="302" height="174"  alt="Administrativo" />
             </a>
             <h1>ADMINISTRATIVO</h1>

@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Correios.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Correios.CEP.Net.1.1.6\lib\Correios.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -94,6 +98,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Funcionario\FuncionarioCad.aspx" />
+    <Content Include="Funcionario\FuncionarioList.aspx" />
     <Content Include="Layout\images\dog-doctor.png" />
     <Content Include="Layout\images\dogwork.png" />
     <Content Include="Layout\images\slide-cachorro.png" />
@@ -569,6 +575,20 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionario\FuncionarioCad.aspx.cs">
+      <DependentUpon>FuncionarioCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Funcionario\FuncionarioCad.aspx.designer.cs">
+      <DependentUpon>FuncionarioCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionario\FuncionarioList.aspx.cs">
+      <DependentUpon>FuncionarioList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Funcionario\FuncionarioList.aspx.designer.cs">
+      <DependentUpon>FuncionarioList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Produto\Produto_Cad.aspx.cs">
       <DependentUpon>Produto_Cad.aspx</DependentUpon>
