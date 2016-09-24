@@ -11,7 +11,8 @@ namespace PortalSCV.DAO
 {
     public class DB
     {
-        private static string cs = "Server=PC_VINNY;Database=PortalSCV;Trusted_Connection=True;";
+        private static string cs = @"Server=DESKTOP-3M3BO8T\SQLEXPRESS;Database=PortalSCV;Trusted_Connection=True;";
+        //private static string cs = "Server=PC_VINNY;Database=PortalSCV;Trusted_Connection=True;";
 
         public T ExecQueryReturnOne<T>(SqlParameter[] P, String nomeSP)
         {

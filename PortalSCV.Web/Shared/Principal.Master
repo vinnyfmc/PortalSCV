@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
     <!-- coloca o icone no navegador -->
-    <link rel="icon" href="~/Layout/imagens/icons/Sirea-Animal-Tracks-Dog.ico" />
+    <link rel="icon" href="../Layout/images/icons/Sirea-Animal-Tracks-Dog.ico" />
 
     <!-- Bootstrap Core CSS -->
     <link href="../Layout/css/bootstrap.min.css" rel="stylesheet" />
