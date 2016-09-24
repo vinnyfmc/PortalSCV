@@ -28,7 +28,11 @@ namespace PortalSCV.Shared
                 {
                     oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                     txtEmailUsuario.Text = oFuncionario.Nome;
+
+                    lnkMeuCadastro.NavigateUrl = "~/Funcionario/FuncionarioCad.aspx?Cod=" + oFuncionario.Codigo;
                 }
+
+                
             }
         }
     }

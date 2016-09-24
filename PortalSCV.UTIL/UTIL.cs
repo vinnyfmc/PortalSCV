@@ -83,7 +83,7 @@ namespace PortalSCV.UTIL
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("portalscv@gmail.com", "admin12345")
+                    Credentials = new NetworkCredential("portalscv@gmail.com", "admin12345@")
                 };
                 using (var message = new MailMessage(fromAddress, toAddress)
                 {

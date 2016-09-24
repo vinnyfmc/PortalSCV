@@ -10,6 +10,14 @@
             $('.cpf').mask('000.000.000-00', {reverse: true, placeholder: "___.___.___-__"});
             $('.cnpj').mask('00.000.000/0000-00', { reverse: true, placeholder: "__.___.___/____-__" });
             $(".money").maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '', decimal: ',', affixesStay: false });
+
+            $("#btnAlterarSenhaModal").on('click', function () {
+
+                $("#ModalAlterarSenha").modal('toggle');
+
+                return false;
+            });
+
         });
     </script>
 
@@ -40,8 +48,8 @@
                         <asp:HiddenField runat="server" ID="Funcionario_Id" />
                     </ContentTemplate>
                     <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnAlterarSenha" EventName="Click" />
                         <asp:AsyncPostBackTrigger ControlID="btnSalvar" EventName="Click" />
-                        <asp:AsyncPostBackTrigger ControlID="btnCEP" EventName="Click" />
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -79,32 +87,34 @@
             </div>
         </div>
 
-        <div class="row">
+        <asp:UpdatePanel runat="server" ID="UpdatePanel1">
+            <ContentTemplate>
+                <div class="row">
 
-            <div class="col-lg-2"> 
-                <div class="form-group">
-                    <label>UF</label>
-                    <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF"></asp:TextBox>
-                </div>
-            </div>
+                    <div class="col-lg-2"> 
+                        <div class="form-group">
+                            <label>UF</label>
+                            <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF"></asp:TextBox>
+                        </div>
+                    </div>
         
-            <div class="col-lg-4"> 
-                <div class="form-group">
-                    <label>Cidade</label>
-                    <asp:TextBox runat="server" ID="txtCidade" CssClass="form-control" placeholder="Digite a cidade do funcionário"></asp:TextBox>
+                    <div class="col-lg-4"> 
+                        <div class="form-group">
+                            <label>Cidade</label>
+                            <asp:TextBox runat="server" ID="txtCidade" CssClass="form-control" placeholder="Digite a cidade do funcionário"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4"> 
+                        <div class="form-group">
+                            <label>Bairro</label>
+                            <asp:TextBox runat="server" ID="txtBairro" CssClass="form-control" placeholder="Digite o bairro do funcionário"></asp:TextBox>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="col-lg-4"> 
-                <div class="form-group">
-                    <label>Bairro</label>
-                    <asp:TextBox runat="server" ID="txtBairro" CssClass="form-control" placeholder="Digite o bairro do funcionário"></asp:TextBox>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
+                <div class="row">
                             
             <div class="col-lg-4">
                 <div class="form-group">
@@ -128,7 +138,12 @@
             </div>
 
         </div>
-        
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCEP" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
+
         <div class="row">
                         
             <div class="col-lg-2">
@@ -182,8 +197,43 @@
         </div>
 
         <div style="float:right;">
+            <asp:Button runat="server" ID="btnAlterarSenhaModal" ClientIDMode="Static" CssClass="btn btn-primary" Text="Alterar Senha" Visible="false"></asp:Button>
             <asp:Button runat="server" ID="btnSalvar" CssClass="btn btn-primary" Text="Salvar" OnClick="btnSalvar_Click"></asp:Button>
         </div>
 
     </div>
+
+
+    <div class="modal fade" id="ModalAlterarSenha" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Alterar Senha</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <asp:TextBox runat="server" ID="txPass" CssClass="form-control" placeholder="Digite sua senha." TextMode="Password"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Confirma Senha</label>
+                                <asp:TextBox runat="server" ID="txPassConfirm" CssClass="form-control" placeholder="Digite sua senha." TextMode="Password"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <asp:Button runat="server" ID="btnAlterarSenha" CssClass="btn btn-primary" Text="Confirmar" OnClick="btnAlterarSenha_Click"></asp:Button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 </asp:Content>

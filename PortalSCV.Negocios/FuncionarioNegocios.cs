@@ -28,55 +28,59 @@ namespace PortalSCV.Negocios
             else
             {
                 oModel = oDAO.Incluir(oModel);
-                AlterarSenha(oModel);
-                return oModel;
+                if (EnviarEmailNovaSenha(oModel))
+                    return oModel;
+                else
+                    throw new Exception("Não foi possivel incluir o funcionário");
             }
         }
-        
+
+        public Boolean EnviarEmailNovaSenha(FuncionarioModel oModel)
+        {
+            if ((!string.IsNullOrEmpty(oModel.Email)) && (!string.IsNullOrEmpty(oModel.Senha)))
+            {
+                EmailModel oEmail = new EmailModel();
+
+                String CorpoEmail = @"<html>
+                                        <head>
+                                            <title></title> 
+                                        </head> 
+                                        <body style='font-size:14px;'>
+                                            <h1>Portal SCV</h1>
+                                            <p>Prezado(a),</p>
+                                            <p>Suas novas credenciais para acessar o sistema da Portal SCV são:</p>
+                                            E-mail: <strong>" + oModel.Email + @"</strong> <br />
+                                            Senha: <strong>" + oModel.Senha + @"</strong>
+                                            <br />
+                                            <p>Att,</p>
+                                            <p>Equipe Portal SCV.</p>
+                                        </body>
+                                    </html>";
+
+                oEmail.EmailPara = oModel.Email;
+                oEmail.Assunto = "Portal SCV - Nova Senha";
+                oEmail.CorpoEmail = CorpoEmail;
+
+                UTIL.UTIL.EnviarEmail(oEmail.EmailPara, oEmail.Assunto, oEmail.CorpoEmail);
+                return true;
+            }
+            return false;
+        }
+
         public Boolean AlterarSenha(FuncionarioModel oModel)
         {
             
             List<FuncionarioModel> oList = new List<FuncionarioModel>();
             FuncionarioDAO oDAO = new FuncionarioDAO();
 
-            oModel.Ativo = true;
-            oList = oDAO.Listar(oModel);
-            if (oList.Count > 0)
+            oModel = oDAO.AlterarSenha(oModel);
+            
+            if (oModel.Codigo.HasValue)
             {
-                oModel = oList[0];
-                if (!string.IsNullOrEmpty(oModel.Email)) 
-                {
-
-                    oModel = oDAO.AlterarSenha(oModel);
-
-                    if (!string.IsNullOrEmpty(oModel.Senha))
-                    {
-                        EmailModel oEmail = new EmailModel();
-
-                        String CorpoEmail = @"<html>
-                                                <head>
-                                                    <title></title> 
-                                                </head> 
-                                                <body style='font-size:14px;'>
-                                                    <h1>AgendOdonto</h1>
-                                                    <p>Prezado(a),</p>
-                                                    <p>Suas novas credenciais para acessar o site da AgendOdonto são:</p>
-                                                    <strong>E-mail: " + oModel.Email + @"</strong>
-                                                    <strong>Senha: " + oModel.Senha + @"</strong>
-                                                    <br />
-                                                    <p>Att,</p>
-                                                    <p>Equipe AgendOdonto.</p>
-                                                </body>
-                                            </html>";
-
-                        oEmail.EmailPara = oModel.Email;
-                        oEmail.Assunto = "Agendodonto - Alteração de Senha";
-                        oEmail.CorpoEmail = CorpoEmail;
-
-                        UTIL.UTIL.EnviarEmail(oEmail.EmailPara, oEmail.Assunto, oEmail.CorpoEmail);
-                        return true;
-                    }
-                }
+               if( EnviarEmailNovaSenha(oModel))
+                    return true;
+                else
+                    throw new Exception("Não foi alterar a senha do funcionário");
             }
 
             return false; 
