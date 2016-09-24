@@ -72,7 +72,7 @@ namespace PortalSCV.UTIL
         {
             try
             {
-                var fromAddress = new MailAddress("emailEmpresa", "PORTAL SCV");
+                var fromAddress = new MailAddress("portalscv@gmail.com", "PORTAL SCV");
                 var toAddress = new MailAddress(emailPara);
 
 
@@ -83,7 +83,7 @@ namespace PortalSCV.UTIL
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("EMAIL", "SENHA")
+                    Credentials = new NetworkCredential("portalscv@gmail.com", "admin12345")
                 };
                 using (var message = new MailMessage(fromAddress, toAddress)
                 {
