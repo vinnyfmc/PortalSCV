@@ -72,10 +72,20 @@ namespace PortalSCV.Layout.Funcionario
                 txtTelefone.Text = oModel.Telefone;
                 txtCelular.Text = oModel.Celular;
                 txtEmail.Text = oModel.Email;
+                txtEmail_Original.Text = oModel.Email;
                 txSalario.Text = oModel.Salario.ToString();
                 txDataAdmissao.Text = ((DateTime)oModel.DataAdmissao).ToString("dd/MM/yyyy"); 
                 
                 cbStatus.SelectedValue = ((bool)oModel.Ativo).ToString();
+
+                FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+                if(oFuncionario.Codigo == oModel.Codigo)
+                {
+                    btnAlterarSenhaModal.Visible = true;
+                }else
+                {
+                    btnAlterarSenhaModal.Visible = false;
+                }
 
             }
 
@@ -259,6 +269,42 @@ namespace PortalSCV.Layout.Funcionario
 
             return Valido;
         }
+
+        protected void btnAlterarSenha_Click(object sender, EventArgs e)
+        {
+            try {
+
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "FechaModal", "$('#ModalAlterarSenha').modal('hide');", true);
+
+                if (string.IsNullOrEmpty(txPass.Text))
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "CamposObrigatorios", "$(document).MensagemModal(3,'Digite a senha e a confirmação da senha!');", true);
+                    return;
+                }
+                else if ((string.IsNullOrEmpty(txPass.Text)) != (string.IsNullOrEmpty(txPassConfirm.Text)))
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "CamposObrigatorios", "$(document).MensagemModal(3,'A senha está diferente da confirmação da senha!');", true);
+                    return;
+                }
+                else {
+                    FuncionarioModel oModel = new FuncionarioModel();
+                    FuncionarioNegocios oNegocios = new FuncionarioNegocios();
+
+                    oModel.Email = txtEmail_Original.Text;
+                    oModel.Senha = txPass.Text;
+                    if(oNegocios.AlterarSenha(oModel))
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SenhaAltrada", "$(document).MensagemModal(1,'Senha alterada com sucesso!');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ErroAlterarSenha", "$(document).MensagemModal(3,'Ocorreu um erro ao alterar sua senha!');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+            }
+        }
+
+
 
     }
 }

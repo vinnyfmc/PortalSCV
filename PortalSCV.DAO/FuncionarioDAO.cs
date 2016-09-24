@@ -92,7 +92,7 @@ namespace PortalSCV.DAO
         {
             DB banco = new DB();
             SqlParameter[] P = { 
-                new SqlParameter("@Codigo", oModel.Codigo),
+                new SqlParameter("@Email", oModel.Email),
                 new SqlParameter("@Senha", oModel.Senha)
             };
             return banco.ExecQueryReturnOne<FuncionarioModel>(P, "Funcionario_AlterarSenha");
