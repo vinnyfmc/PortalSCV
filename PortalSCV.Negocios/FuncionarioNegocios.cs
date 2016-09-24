@@ -58,19 +58,19 @@ namespace PortalSCV.Negocios
                                                     <title></title> 
                                                 </head> 
                                                 <body style='font-size:14px;'>
-                                                    <h1>AgendOdonto</h1>
+                                                    <h1>PortalSCV</h1>
                                                     <p>Prezado(a),</p>
-                                                    <p>Suas novas credenciais para acessar o site da AgendOdonto são:</p>
+                                                    <p>Informamos que suas novas credenciais para acessar o site da PortalSCV são:</p>
                                                     <strong>E-mail: " + oModel.Email + @"</strong>
                                                     <strong>Senha: " + oModel.Senha + @"</strong>
                                                     <br />
                                                     <p>Att,</p>
-                                                    <p>Equipe AgendOdonto.</p>
+                                                    <p>Equipe Desenvolvedora.</p>
                                                 </body>
                                             </html>";
 
                         oEmail.EmailPara = oModel.Email;
-                        oEmail.Assunto = "Agendodonto - Alteração de Senha";
+                        oEmail.Assunto = "PortalSCV - Alteração de Senha";
                         oEmail.CorpoEmail = CorpoEmail;
 
                         UTIL.UTIL.EnviarEmail(oEmail.EmailPara, oEmail.Assunto, oEmail.CorpoEmail);

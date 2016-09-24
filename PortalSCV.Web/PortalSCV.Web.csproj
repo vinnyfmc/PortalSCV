@@ -100,9 +100,12 @@
   <ItemGroup>
     <Content Include="Funcionario\FuncionarioCad.aspx" />
     <Content Include="Funcionario\FuncionarioList.aspx" />
+    <Content Include="Layout\images\bgTela.jpg" />
     <Content Include="Layout\images\dog-doctor.png" />
     <Content Include="Layout\images\dogwork.png" />
+    <Content Include="Layout\images\Sirea-Animal-Tracks-Dog.ico" />
     <Content Include="Layout\images\slide-cachorro.png" />
+    <Content Include="Layout\images\vetmax.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
