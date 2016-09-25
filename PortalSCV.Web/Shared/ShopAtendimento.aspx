@@ -1,7 +1,7 @@
 ﻿<%@ Page Title=".:: SCV - Sistema de Controle Veterinário ::." Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="ShopAtendimento.aspx.cs" Inherits="PortalSCV.Shared.ShopAtendimento" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <body background="../Layout/images/bgTela.jpg" style="margin-top: 0px; background-repeat: repeat-x;" />
-    <link rel="icon" href="../Layout/images/icons/Sirea-Animal-Tracks-Dog.ico" />
+    <link rel="icon" href="../Layout/images/Sirea-Animal-Tracks-Dog.ico" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row" style="margin-top:50px">

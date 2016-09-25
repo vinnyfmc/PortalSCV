@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
     <!-- coloca o icone no navegador -->
-    <link rel="icon" href="../Layout/images/icons/Sirea-Animal-Tracks-Dog.ico" />
+    <link rel="icon" href="../Layout/images/Sirea-Animal-Tracks-Dog.ico" />
 
     <!-- Bootstrap Core CSS -->
     <link href="../Layout/css/bootstrap.min.css" rel="stylesheet" />
@@ -88,7 +88,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                LOGO
+                &nbsp;&nbsp;&nbsp;<asp:Image ID="imgLogo" runat="server" ImageUrl="../Layout/images/vetmax.png" Width="80px"/>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
