@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioCad.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioCad" %>
+﻿<%@ Page Title=".:: SCV - Sistema de Controle Veterinário ::." Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioCad.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioCad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Layout/js/plugins/mask/jquery.maskMoney.js"></script>
     <script type="text/javascript">
@@ -59,7 +59,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Nome</label>
-                    <asp:TextBox runat="server" ID="txtNome" CssClass="form-control" placeholder="Digite o nome completo do funcionário..."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtNome" CssClass="form-control" placeholder="Digite o nome completo do funcionário"></asp:TextBox>
                 </div>
             </div>
              <div class="col-lg-2">
