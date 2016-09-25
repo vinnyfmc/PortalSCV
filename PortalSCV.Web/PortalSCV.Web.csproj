@@ -170,6 +170,7 @@
     <Content Include="Layout\js\plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
     <Content Include="Layout\js\plugins\datatables\media\images\Sorting icons.psd" />
     <Content Include="Layout\js\plugins\datatables\Readme.md" />
+    <None Include="Properties\PublishProfiles\Homologacao.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
