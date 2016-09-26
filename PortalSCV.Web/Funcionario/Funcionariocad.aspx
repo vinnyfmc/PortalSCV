@@ -1,4 +1,4 @@
-﻿<%@ Page Title=".:: SCV - Sistema de Controle Veterinário ::." Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioCad.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioCad" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioCad.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioCad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Layout/js/plugins/mask/jquery.maskMoney.js"></script>
     <script type="text/javascript">
@@ -79,10 +79,11 @@
        
         <div class="row">
             <div class="col-lg-2"> 
-                <div class="form-group input-group">
-                    <label>CEP</label>
-                    <asp:TextBox runat="server" ID="txtCEP" CssClass="form-control cep" placeholder="Ex: 99999-999"></asp:TextBox>
-                    <span class="input-group-btn" style="vertical-align: bottom;"><asp:LinkButton runat="server" ID="btnCEP" CssClass="btn btn-primary" Text="<i class='fa fa-search'></i>" OnClick="btnCEP_Click" /></span>
+                <label>CEP</label>
+                <div class="form-inline">
+                    <asp:TextBox runat="server" ID="txtCEP" CssClass="form-control cep" placeholder="Ex: 99999-999" Width="60%"></asp:TextBox>
+                    <asp:LinkButton runat="server" ID="btnCEP" CssClass="btn btn-primary" Text="<i class='fa fa-search'></i>" OnClick="btnCEP_Click" />
+                    
                 </div>
             </div>
         </div>

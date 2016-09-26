@@ -1,4 +1,4 @@
-﻿<%@ Page Title=".:: SCV - Sistema de Controle Veterinário ::." Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioList.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioList" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionarioList.aspx.cs" Inherits="PortalSCV.Layout.Funcionario.FuncionarioList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="../Layout/js/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../Layout/js/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
