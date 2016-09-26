@@ -9,13 +9,13 @@
             <a href="#" >
                 <img src="../Layout/images/slide-cachorro.png" width="300" height="174" alt="Shop" />
             </a>
-            <h1 style="margin-left:100px">SHOP</h1>
+            <h1 style="margin-left:100px">VENDAS</h1>
         </div>
         <div class="col-lg-5">
             <a href="#" >
                 <img src="../Layout/images/dog-doctor.png" width="174" height="174"  alt="Atendimento" />
             </a>
-            <h1>ATENDIMENTO</h1>
+            <h1>ATENDIMENTOS</h1>
         </div>
     </div>
 
