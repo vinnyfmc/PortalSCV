@@ -202,7 +202,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="Default.aspx"><i class="fa fa-fw fa-calendar"></i> Agenda</a>
+                        <a href="../Produto/ProdutoList.aspx"><i class="fa fa-eyedropper" aria-hidden="true"></i> Lista de Produtos</a>
                     </li>
                     <li>
                         <a href="../Usuario/Usuario_Lst.aspx"><i class="fa fa-fw fa-user"></i> Empresa</a>

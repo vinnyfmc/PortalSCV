@@ -106,6 +106,7 @@
     <Content Include="Layout\images\Sirea-Animal-Tracks-Dog.ico" />
     <Content Include="Layout\images\slide-cachorro.png" />
     <Content Include="Layout\images\vetmax.png" />
+    <Content Include="Layout\js\plugins\maskmoney\jquery.maskMoney.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -562,8 +563,8 @@
     <Content Include="Layout\js\plugins\morris\raphael.min.js" />
     <Content Include="Layout\js\plugins\spectrum\spectrum.css" />
     <Content Include="Layout\js\plugins\spectrum\spectrum.js" />
-    <Content Include="Produto\Produto_Cad.aspx" />
-    <Content Include="Produto\Produto_List.aspx" />
+    <Content Include="Produto\ProdutoCad.aspx" />
+    <Content Include="Produto\ProdutoList.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Shared\ShopAtendimento.aspx" />
@@ -594,19 +595,19 @@
     <Compile Include="Funcionario\FuncionarioList.aspx.designer.cs">
       <DependentUpon>FuncionarioList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Produto\Produto_Cad.aspx.cs">
-      <DependentUpon>Produto_Cad.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoCad.aspx.cs">
+      <DependentUpon>ProdutoCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Produto\Produto_Cad.aspx.designer.cs">
-      <DependentUpon>Produto_Cad.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoCad.aspx.designer.cs">
+      <DependentUpon>ProdutoCad.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Produto\Produto_List.aspx.cs">
-      <DependentUpon>Produto_List.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoList.aspx.cs">
+      <DependentUpon>ProdutoList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Produto\Produto_List.aspx.designer.cs">
-      <DependentUpon>Produto_List.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoList.aspx.designer.cs">
+      <DependentUpon>ProdutoList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Principal.Master.cs">
