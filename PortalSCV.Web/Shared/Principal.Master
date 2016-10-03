@@ -205,23 +205,12 @@
                         <a href="../Produto/ProdutoList.aspx"><i class="fa fa-eyedropper" aria-hidden="true"></i> Lista de Produtos</a>
                     </li>
                     <li>
-                        <a href="../Usuario/Usuario_Lst.aspx"><i class="fa fa-fw fa-user"></i> Empresa</a>
-                    </li>
-                    <li>
                         <a href="../Funcionario/FuncionarioList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Funcionários</a>
                     </li>
                     <li>
-                        <a href="../AtendimentoTipo/AtendimentoTipo_Lst.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Tipo Atendimento</a>
+                        <a href="../Fornecedor/FornecedorList.aspx"><i class="fa fa-fw fa-shopping-cart"></i> Lista de Fornecedores</a>
                     </li>
-                    <li>
-                        <a href="../Orcamento/Orcamento_Lst.aspx"><i class="fa fa-fw fa-money"></i> Lista de Orçamentos</a>
-                    </li>
-                    <li>
-                        <a href="ListaPagamentos.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Pagamentos</a>
-                    </li>
-                    <li>
-                        <a href="ListaAusencias.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Ausências</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

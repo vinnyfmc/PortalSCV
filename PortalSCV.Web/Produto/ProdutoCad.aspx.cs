@@ -19,6 +19,14 @@ namespace PortalSCV.Produto
                 try
                 {
 
+                    //Carrega Fornecedores
+                    FornecedorModel oModel = new FornecedorModel();
+                    List<FornecedorModel> oList = new List<FornecedorModel>();
+                    FornecedorNegocios oNegocios = new FornecedorNegocios();
+                    oModel.Ativo = true;
+                    oList = oNegocios.Listar(oModel);
+                    UTIL.UTIL.PreencheSelect(oList, cmbFornecedor, "RazaoSocial", "Codigo", "Selecione...");
+                    
                     if (Request.QueryString["Cod"] != null)
                     {
                         int id;
@@ -35,6 +43,7 @@ namespace PortalSCV.Produto
                     else {
                         FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                         txCadastradoPor.Text = oFuncionario.Nome;
+                        cdFuncionario.Text = oFuncionario.Codigo.ToString();
                         txQuantidade.Text = "0";
                         
                     }//Novo
@@ -62,11 +71,12 @@ namespace PortalSCV.Produto
                 Produto_Id.Value = oModel.Codigo.ToString();
                 txDescricao.Text = oModel.Descricao;
                 txCadastradoPor.Text = oModel.Nome_Funcionario;
+                cdFuncionario.Text = oModel.Codigo_Funcionario.ToString();
                 cmbFornecedor.SelectedValue = oModel.Codigo_Fornecedor.ToString();
                 if (oModel.DataValidade != null)
                     txDataValidade.Text = ((DateTime)oModel.DataValidade).ToString("dd/MM/yyyy");
-                txValorCompra.Text = oModel.PrecoCompra.ToString();
-                txValorVenda.Text = oModel.PrecoVenda.ToString();
+                txValorCompra.Text = ((Decimal)oModel.PrecoCompra).ToString("n2");
+                txValorVenda.Text = ((Decimal)oModel.PrecoVenda).ToString("n2");
                 if (oModel.QuantidadeEstoque_Minima != null)
                     txQuantMinima.Text = oModel.QuantidadeEstoque_Minima.ToString();
                 txQuantidade.Text = oModel.QuantidadeEstoque.ToString();

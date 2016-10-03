@@ -47,7 +47,6 @@ namespace PortalSCV.DAO
             SqlParameter[] P = {
                 new SqlParameter("@Codigo", oModel.Codigo),
                 new SqlParameter("@Codigo_Fornecedor", oModel.Codigo_Fornecedor),
-                new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
                 new SqlParameter("@QuantidadeEstoque_Minima", oModel.QuantidadeEstoque_Minima),
                 new SqlParameter("@Descricao", oModel.Descricao),
                 new SqlParameter("@DataValidade", oModel.DataValidade),
