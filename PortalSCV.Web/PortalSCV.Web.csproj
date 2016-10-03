@@ -98,6 +98,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fornecedor\FornecedorCad.aspx" />
+    <Content Include="Fornecedor\FornecedorList.aspx" />
+    <Content Include="Layout\js\plugins\maskmoney\demo\index.html" />
+    <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.js" />
+    <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.min.js" />
+    <Content Include="Layout\js\plugins\maskmoney\Gruntfile.js" />
+    <Content Include="Layout\js\plugins\maskmoney\jquery.maskMoney.js" />
+    <Content Include="Layout\js\plugins\maskmoney\src\jquery.maskMoney.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\change_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\cut_paste_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\data_dash_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\focus_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\index.html" />
+    <Content Include="Layout\js\plugins\maskmoney\test\init_and_destroy_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\keypress_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\mask_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\unmasked_test.js" />
+    <Content Include="Layout\js\plugins\maskmoney\test\util.js" />
     <Content Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx" />
     <Content Include="Funcionario\FuncionarioCad.aspx" />
     <Content Include="PerfilAcesso\PerfilAcessoFuncionarioList.aspx" />
@@ -112,6 +130,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Produto\ProdutoCad.aspx" />
+    <Content Include="Produto\ProdutoList.aspx" />
     <Content Include="Shared\Principal.Master" />
     <Content Include="Layout\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Layout\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -172,6 +192,14 @@
     <Content Include="Layout\js\plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
     <Content Include="Layout\js\plugins\datatables\media\images\Sorting icons.psd" />
     <Content Include="Layout\js\plugins\datatables\Readme.md" />
+    <Content Include="Layout\js\plugins\maskmoney\.editorconfig" />
+    <Content Include="Layout\js\plugins\maskmoney\.gitignore" />
+    <Content Include="Layout\js\plugins\maskmoney\.jshintrc" />
+    <Content Include="Layout\js\plugins\maskmoney\.travis.yml" />
+    <Content Include="Layout\js\plugins\maskmoney\LICENSE" />
+    <Content Include="Layout\js\plugins\maskmoney\maskMoney.jquery.json" />
+    <Content Include="Layout\js\plugins\maskmoney\package.json" />
+    <Content Include="Layout\js\plugins\maskmoney\README.md" />
     <None Include="Properties\PublishProfiles\Homologacao.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -182,7 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Index.aspx" />
+    <Content Include="Login\Index.aspx" />
     <Content Include="Layout\css\bootstrap-rtl.css" />
     <Content Include="Layout\css\bootstrap-rtl.min.css" />
     <Content Include="Layout\css\bootstrap.css" />
@@ -564,14 +592,26 @@
     <Content Include="Layout\js\plugins\morris\raphael.min.js" />
     <Content Include="Layout\js\plugins\spectrum\spectrum.css" />
     <Content Include="Layout\js\plugins\spectrum\spectrum.js" />
-    <Content Include="Produto\Produto_Cad.aspx" />
-    <Content Include="Produto\Produto_List.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Shared\ShopAtendimento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fornecedor\FornecedorCad.aspx.cs">
+      <DependentUpon>FornecedorCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\FornecedorCad.aspx.designer.cs">
+      <DependentUpon>FornecedorCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\FornecedorList.aspx.cs">
+      <DependentUpon>FornecedorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\FornecedorList.aspx.designer.cs">
+      <DependentUpon>FornecedorList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx.cs">
       <DependentUpon>PerfilAcessoFuncionarioCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -589,11 +629,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
+    <Compile Include="Login\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
+    <Compile Include="Login\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Funcionario\FuncionarioCad.aspx.cs">
@@ -610,19 +650,19 @@
     <Compile Include="Funcionario\FuncionarioList.aspx.designer.cs">
       <DependentUpon>FuncionarioList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Produto\Produto_Cad.aspx.cs">
-      <DependentUpon>Produto_Cad.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoCad.aspx.cs">
+      <DependentUpon>ProdutoCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Produto\Produto_Cad.aspx.designer.cs">
-      <DependentUpon>Produto_Cad.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoCad.aspx.designer.cs">
+      <DependentUpon>ProdutoCad.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Produto\Produto_List.aspx.cs">
-      <DependentUpon>Produto_List.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoList.aspx.cs">
+      <DependentUpon>ProdutoList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Produto\Produto_List.aspx.designer.cs">
-      <DependentUpon>Produto_List.aspx</DependentUpon>
+    <Compile Include="Produto\ProdutoList.aspx.designer.cs">
+      <DependentUpon>ProdutoList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Principal.Master.cs">
