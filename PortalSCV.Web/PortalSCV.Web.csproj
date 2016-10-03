@@ -98,7 +98,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx" />
     <Content Include="Funcionario\FuncionarioCad.aspx" />
+    <Content Include="PerfilAcesso\PerfilAcessoFuncionarioList.aspx" />
     <Content Include="Funcionario\FuncionarioList.aspx" />
     <Content Include="Layout\images\bgTela.jpg" />
     <Content Include="Layout\images\dog-doctor.png" />
@@ -570,6 +572,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx.cs">
+      <DependentUpon>PerfilAcessoFuncionarioCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx.designer.cs">
+      <DependentUpon>PerfilAcessoFuncionarioCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioList.aspx.cs">
+      <DependentUpon>PerfilAcessoFuncionarioList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioList.aspx.designer.cs">
+      <DependentUpon>PerfilAcessoFuncionarioList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

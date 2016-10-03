@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="EmailModel.cs" />
     <Compile Include="EstoqueModel.cs" />
+    <Compile Include="PerfilAcessoModel.cs" />
+    <Compile Include="PerfilAcessoFuncionarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FuncionarioModel.cs" />
   </ItemGroup>

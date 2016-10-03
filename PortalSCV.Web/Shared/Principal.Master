@@ -32,19 +32,19 @@
     <![endif]-->
 
     <!--Chosen Autocomplete -->
-    <link href="../Layout/js/plugins/chosen_Autocomplete/chosen.min.css" rel="stylesheet" />
+    <link href="Layout/js/plugins/chosen_Autocomplete/chosen.min.css" rel="stylesheet" />
 
     <!-- jQuery -->
-    <script src="../Layout/js/jquery-2.2.4.min.js"></script>
+    <script src="Layout/js/jquery-2.2.4.min.js"></script>
    
     <!-- Bootstrap Core JavaScript -->
-    <script src="../Layout/js/bootstrap.min.js"></script>
+    <script src="Layout/js/bootstrap.min.js"></script>
 
     <!--Chosen Autocomplete -->
-    <script src="../Layout/js/plugins/chosen_Autocomplete/chosen.jquery.min.js"></script>
+    <script src="Layout/js/plugins/chosen_Autocomplete/chosen.jquery.min.js"></script>
     
     <!--Mask Input -->
-    <script src="../Layout/js/plugins/mask/jquery.mask.js"></script>
+    <script src="Layout/js/plugins/mask/jquery.mask.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -90,7 +90,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <asp:Image ID="imgLogo" runat="server" ImageUrl="../Layout/images/vetmax.png" Width="80px" style="margin-left:50px;"/>
+                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Layout/images/vetmax.png" Width="80px" style="margin-left:50px;"/>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -206,6 +206,9 @@
                     </li>
                     <li>
                         <a href="../Usuario/Usuario_Lst.aspx"><i class="fa fa-fw fa-user"></i> Empresa</a>
+                    </li>
+                    <li>
+                        <a href="../PerfilAcesso/PerfilAcessoFuncionarioList.aspx"><i class="glyphicon glyphicon-user"></i> Lista de Perfis de Acesso</a>
                     </li>
                     <li>
                         <a href="../Funcionario/FuncionarioList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Funcionários</a>

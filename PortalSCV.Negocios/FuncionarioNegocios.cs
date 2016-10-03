@@ -17,6 +17,12 @@ namespace PortalSCV.Negocios
             return oDAO.Listar(oModel);
         }
 
+        public List<FuncionarioModel> ListarComboFuncionario(FuncionarioModel oModel)
+        {
+            FuncionarioDAO oDAO = new FuncionarioDAO();
+            return oDAO.ListarComboFuncionario(oModel);
+        }
+
         public FuncionarioModel Salvar(FuncionarioModel oModel)
         {
             FuncionarioDAO oDAO = new FuncionarioDAO();
@@ -77,7 +83,7 @@ namespace PortalSCV.Negocios
             
             if (oModel.Codigo.HasValue)
             {
-               if( EnviarEmailNovaSenha(oModel))
+               if(EnviarEmailNovaSenha(oModel))
                     return true;
                 else
                     throw new Exception("Não foi alterar a senha do funcionário");

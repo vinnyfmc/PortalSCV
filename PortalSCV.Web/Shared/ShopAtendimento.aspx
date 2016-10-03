@@ -7,7 +7,7 @@
     <div class="row" style="margin-top:50px">
         <div class="col-lg-7">
             <a href="#" >
-                <img src="../Layout/images/slide-cachorro.png" width="300" height="174" alt="Shop" />
+                <img src="../Layout/images/slide-cachorro.png" width="300" height="174" alt="VENDAS" />
             </a>
             <h1 style="margin-left:100px">VENDAS</h1>
         </div>

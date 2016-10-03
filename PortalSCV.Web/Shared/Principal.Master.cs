@@ -31,8 +31,6 @@ namespace PortalSCV.Shared
 
                     lnkMeuCadastro.NavigateUrl = "~/Funcionario/FuncionarioCad.aspx?Cod=" + oFuncionario.Codigo;
                 }
-
-                
             }
         }
     }

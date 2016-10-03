@@ -37,7 +37,19 @@ namespace PortalSCV.DAO
     
             return banco.ExecQuery<FuncionarioModel>(P,"Funcionario_Listar");
         }
-        
+
+        public List<FuncionarioModel> ListarComboFuncionario(FuncionarioModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo),
+                new SqlParameter("@Nome", oModel.Nome)
+            };
+
+            return banco.ExecQuery<FuncionarioModel>(P, "Funcionario_ListarCombo");
+        }
+
         public FuncionarioModel Incluir(FuncionarioModel oModel)
         {
             DB banco = new DB();
