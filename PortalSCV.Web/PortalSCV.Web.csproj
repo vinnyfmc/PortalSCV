@@ -100,6 +100,11 @@
   <ItemGroup>
     <Content Include="Fornecedor\FornecedorCad.aspx" />
     <Content Include="Fornecedor\FornecedorList.aspx" />
+    <Content Include="Layout\css\Site.css" />
+    <Content Include="Layout\css\style2.css" />
+    <Content Include="Layout\images\Button-Turn-On-icon.png" />
+    <Content Include="Layout\images\content_login.png" />
+    <Content Include="Layout\images\Header_Footer.png" />
     <Content Include="Layout\js\plugins\maskmoney\demo\index.html" />
     <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.js" />
     <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.min.js" />
@@ -210,7 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Login\Index.aspx" />
+    <Content Include="Login\Acesso.aspx" />
     <Content Include="Layout\css\bootstrap-rtl.css" />
     <Content Include="Layout\css\bootstrap-rtl.min.css" />
     <Content Include="Layout\css\bootstrap.css" />
@@ -594,6 +599,7 @@
     <Content Include="Layout\js\plugins\spectrum\spectrum.js" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Shared\Modulos.aspx" />
     <Content Include="Shared\ShopAtendimento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -629,12 +635,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Login\Acesso.aspx.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Login\Acesso.aspx.designer.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Funcionario\FuncionarioCad.aspx.cs">
       <DependentUpon>FuncionarioCad.aspx</DependentUpon>
@@ -671,6 +677,13 @@
     </Compile>
     <Compile Include="Shared\Principal.Master.designer.cs">
       <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Modulos.aspx.cs">
+      <DependentUpon>Modulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shared\Modulos.aspx.designer.cs">
+      <DependentUpon>Modulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shared\ShopAtendimento.aspx.cs">
       <DependentUpon>ShopAtendimento.aspx</DependentUpon>

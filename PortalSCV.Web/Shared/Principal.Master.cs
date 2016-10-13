@@ -16,15 +16,15 @@ namespace PortalSCV.Shared
 
             string path = System.Web.HttpContext.Current.Request.Url.AbsolutePath;
             System.IO.FileInfo info = new System.IO.FileInfo(path);
-            if (info.Name != "Index.aspx")
+            if (info.Name != "Acesso.aspx")
             {
                 if (Session["objFuncionario"] == null)
-                    Response.Redirect("~/Index.aspx");
+                    Response.Redirect("~/Acesso.aspx");
             }
 
             if (!IsPostBack)
             {
-                if (info.Name != "Index.aspx")
+                if (info.Name != "Acesso.aspx")
                 {
                     oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                     txtEmailUsuario.Text = oFuncionario.Nome;
