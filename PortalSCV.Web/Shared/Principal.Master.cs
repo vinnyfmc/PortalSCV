@@ -16,23 +16,20 @@ namespace PortalSCV.Shared
 
             string path = System.Web.HttpContext.Current.Request.Url.AbsolutePath;
             System.IO.FileInfo info = new System.IO.FileInfo(path);
-            if (info.Name != "Index.aspx")
-                if (info.Name != "Acesso.aspx")
-                {
-                    if (Session["objFuncionario"] == null)
-                        Response.Redirect("~/Login/Index.aspx");
-                    Response.Redirect("~/Acesso.aspx");
-                }
+            if (info.Name != "Acesso.aspx")
+            {
+                if (Session["objFuncionario"] == null)
+                    Response.Redirect("~/Login/Acesso.aspx");
+            }
 
             if (!IsPostBack)
             {
-                if (info.Name != "Index.aspx")
-                    if (info.Name != "Acesso.aspx")
-                    {
-                        oFuncionario = (FuncionarioModel)Session["objFuncionario"];
-                        txtEmailUsuario.Text = oFuncionario.Nome;
+                if (info.Name != "Acesso.aspx")
+                {
+                    oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+                    txtEmailUsuario.Text = oFuncionario.Nome;
 
-                        lnkMeuCadastro.NavigateUrl = "~/Funcionario/FuncionarioCad.aspx?Cod=" + oFuncionario.Codigo;
+                    lnkMeuCadastro.NavigateUrl = "~/Funcionario/FuncionarioCad.aspx?Cod=" + oFuncionario.Codigo;
                 }
             }
         }

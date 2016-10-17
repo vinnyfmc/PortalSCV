@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailModel.cs" />
+    <Compile Include="EmpresaModel.cs" />
     <Compile Include="FornecedorModel.cs" />
     <Compile Include="PedidoModel.cs" />
     <Compile Include="PerfilAcessoModel.cs" />
