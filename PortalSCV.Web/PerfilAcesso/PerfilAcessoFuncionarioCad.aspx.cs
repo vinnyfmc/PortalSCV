@@ -24,7 +24,9 @@ namespace PortalSCV.Layout.PerfilAcesso
                         int id;
                         if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
                         {
-                            //DetalharObj(id);
+                            CarregaComboPerfilAcesso();
+                            CarregaComboFuncionarios();
+                            DetalharObj(id);
                         }
                         else
                         {
@@ -96,9 +98,11 @@ namespace PortalSCV.Layout.PerfilAcesso
             {
                 oModel = oListModel[0];
 
+                PerfilAcesso_Id.Value = oModel.Codigo.ToString();
 
-            }
-
+                ddlPerfilAcesso.SelectedValue = oModel.Codigo_PerfilAcesso.ToString();
+                ddlFuncionario.SelectedValue = oModel.Codigo_Funcionario.ToString();
+             }
         }
 
 
@@ -114,20 +118,17 @@ namespace PortalSCV.Layout.PerfilAcesso
 
                     if (!string.IsNullOrEmpty(PerfilAcesso_Id.Value))
                         oModel.Codigo = UTIL.UTIL.Parse<int>(PerfilAcesso_Id.Value);
-                    else
-
+                    
                     if (!string.IsNullOrEmpty(ddlPerfilAcesso.SelectedValue))
                         oModel.Codigo_PerfilAcesso = Convert.ToInt32(ddlPerfilAcesso.SelectedValue);
 
                     if (!string.IsNullOrEmpty(ddlFuncionario.SelectedValue))
                         oModel.Codigo_Funcionario = Convert.ToInt32(ddlFuncionario.SelectedValue);
 
-
                     oModel = oNegocios.Salvar(oModel);
 
                     PerfilAcesso_Id.Value = oModel.Codigo.ToString();
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
-
                 }
             }
             catch (Exception ex)

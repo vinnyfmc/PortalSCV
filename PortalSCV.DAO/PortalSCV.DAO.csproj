@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="EmpresaDAO.cs" />
     <Compile Include="FornecedorDAO.cs" />
     <Compile Include="PedidoDAO.cs" />
     <Compile Include="PerfilAcessoDAO.cs" />
