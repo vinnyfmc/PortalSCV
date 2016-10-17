@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="EmailModel.cs" />
     <Compile Include="EstoqueModel.cs" />
+    <Compile Include="EmpresaModel.cs" />
     <Compile Include="FornecedorModel.cs" />
     <Compile Include="PerfilAcessoModel.cs" />
     <Compile Include="PerfilAcessoFuncionarioModel.cs" />

@@ -98,6 +98,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Empresa\EmpresaCad.aspx" />
+    <Content Include="Empresa\EmpresaList.aspx" />
     <Content Include="Fornecedor\FornecedorCad.aspx" />
     <Content Include="Fornecedor\FornecedorList.aspx" />
     <Content Include="Layout\css\Site.css" />
@@ -604,6 +606,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Empresa\EmpresaCad.aspx.cs">
+      <DependentUpon>EmpresaCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresa\EmpresaCad.aspx.designer.cs">
+      <DependentUpon>EmpresaCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa\EmpresaList.aspx.cs">
+      <DependentUpon>EmpresaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresa\EmpresaList.aspx.designer.cs">
+      <DependentUpon>EmpresaList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\FornecedorCad.aspx.cs">
       <DependentUpon>FornecedorCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
