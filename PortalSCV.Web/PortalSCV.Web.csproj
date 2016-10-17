@@ -116,6 +116,8 @@
     <Content Include="Layout\js\plugins\maskmoney\test\mask_test.js" />
     <Content Include="Layout\js\plugins\maskmoney\test\unmasked_test.js" />
     <Content Include="Layout\js\plugins\maskmoney\test\util.js" />
+    <Content Include="Pedido\PedidoCad.aspx" />
+    <Content Include="Pedido\PedidoList.aspx" />
     <Content Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx" />
     <Content Include="Funcionario\FuncionarioCad.aspx" />
     <Content Include="PerfilAcesso\PerfilAcessoFuncionarioList.aspx" />
@@ -611,6 +613,20 @@
     </Compile>
     <Compile Include="Fornecedor\FornecedorList.aspx.designer.cs">
       <DependentUpon>FornecedorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedido\PedidoCad.aspx.cs">
+      <DependentUpon>PedidoCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedido\PedidoCad.aspx.designer.cs">
+      <DependentUpon>PedidoCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedido\PedidoList.aspx.cs">
+      <DependentUpon>PedidoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedido\PedidoList.aspx.designer.cs">
+      <DependentUpon>PedidoList.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerfilAcesso\PerfilAcessoFuncionarioCad.aspx.cs">
       <DependentUpon>PerfilAcessoFuncionarioCad.aspx</DependentUpon>

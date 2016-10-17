@@ -11,12 +11,6 @@
             $('.cnpj').mask('00.000.000/0000-00', { reverse: true, placeholder: "__.___.___/____-__" });
             $(".money").maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '', decimal: ',', affixesStay: false });
 
-            $("#btnAlterarSenhaModal").on('click', function () {
-
-                $("#ModalAlterarSenha").modal('toggle');
-
-                return false;
-            });
 
         });
     </script>

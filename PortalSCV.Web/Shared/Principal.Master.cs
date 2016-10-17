@@ -19,7 +19,7 @@ namespace PortalSCV.Shared
             if (info.Name != "Index.aspx")
             {
                 if (Session["objFuncionario"] == null)
-                    Response.Redirect("~/Index.aspx");
+                    Response.Redirect("~/Login/Index.aspx");
             }
 
             if (!IsPostBack)
