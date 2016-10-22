@@ -102,6 +102,11 @@
     <Content Include="Empresa\EmpresaList.aspx" />
     <Content Include="Fornecedor\FornecedorCad.aspx" />
     <Content Include="Fornecedor\FornecedorList.aspx" />
+    <Content Include="Layout\css\Site.css" />
+    <Content Include="Layout\css\style2.css" />
+    <Content Include="Layout\images\Button-Turn-On-icon.png" />
+    <Content Include="Layout\images\content_login.png" />
+    <Content Include="Layout\images\Header_Footer.png" />
     <Content Include="Layout\js\plugins\maskmoney\demo\index.html" />
     <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.js" />
     <Content Include="Layout\js\plugins\maskmoney\dist\jquery.maskMoney.min.js" />

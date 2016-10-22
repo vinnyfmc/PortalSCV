@@ -43,19 +43,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2015 02:06:24</publishTime>
     </File>
     <File Include="bin/PortalSCV.DAO.dll">
-      <publishTime>10/03/2016 14:01:17</publishTime>
+      <publishTime>10/18/2016 11:31:49</publishTime>
     </File>
     <File Include="bin/PortalSCV.dll">
-      <publishTime>10/03/2016 14:01:21</publishTime>
+      <publishTime>10/22/2016 17:35:15</publishTime>
     </File>
     <File Include="bin/PortalSCV.Dominio.dll">
-      <publishTime>10/03/2016 12:26:51</publishTime>
+      <publishTime>10/18/2016 11:31:48</publishTime>
     </File>
     <File Include="bin/PortalSCV.Negocios.dll">
-      <publishTime>10/03/2016 14:01:17</publishTime>
+      <publishTime>10/18/2016 11:31:49</publishTime>
     </File>
     <File Include="bin/PortalSCV.UTIL.dll">
-      <publishTime>10/03/2016 12:26:51</publishTime>
+      <publishTime>10/18/2016 11:31:49</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/18/2015 20:19:46</publishTime>
@@ -93,8 +93,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
+    <File Include="Empresa/EmpresaCad.aspx">
+      <publishTime>10/17/2016 02:01:01</publishTime>
+    </File>
+    <File Include="Empresa/EmpresaList.aspx">
+      <publishTime>10/17/2016 00:01:13</publishTime>
+    </File>
     <File Include="Fornecedor/FornecedorCad.aspx">
-      <publishTime>10/03/2016 11:51:55</publishTime>
+      <publishTime>10/18/2016 10:55:42</publishTime>
     </File>
     <File Include="Fornecedor/FornecedorList.aspx">
       <publishTime>10/03/2016 11:51:59</publishTime>
@@ -131,6 +137,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Layout/css/sb-admin.css">
       <publishTime>09/25/2016 23:19:25</publishTime>
+    </File>
+    <File Include="Layout/css/Site.css">
+      <publishTime>10/10/2016 01:05:05</publishTime>
+    </File>
+    <File Include="Layout/css/style2.css">
+      <publishTime>10/10/2016 00:59:58</publishTime>
     </File>
     <File Include="Layout/font-awesome/css/font-awesome.css">
       <publishTime>09/24/2016 10:55:32</publishTime>
@@ -249,11 +261,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Layout/images/bgTela.jpg">
       <publishTime>09/14/2016 18:31:30</publishTime>
     </File>
+    <File Include="Layout/images/Button-Turn-On-icon.png">
+      <publishTime>10/08/2016 14:57:10</publishTime>
+    </File>
+    <File Include="Layout/images/content_login.png">
+      <publishTime>01/08/2016 14:46:36</publishTime>
+    </File>
     <File Include="Layout/images/dog-doctor.png">
       <publishTime>09/24/2016 10:55:32</publishTime>
     </File>
     <File Include="Layout/images/dogwork.png">
       <publishTime>09/24/2016 10:55:32</publishTime>
+    </File>
+    <File Include="Layout/images/Header_Footer.png">
+      <publishTime>10/09/2016 13:57:35</publishTime>
     </File>
     <File Include="Layout/images/Sirea-Animal-Tracks-Dog.ico">
       <publishTime>09/11/2016 15:37:02</publishTime>
@@ -1521,11 +1542,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Layout/js/plugins/spectrum/spectrum.js">
       <publishTime>09/24/2016 10:55:33</publishTime>
     </File>
+    <File Include="Login/Acesso.aspx">
+      <publishTime>10/08/2016 14:49:42</publishTime>
+    </File>
     <File Include="Login/Index.aspx">
       <publishTime>10/03/2016 11:53:02</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>09/24/2016 10:55:33</publishTime>
+    </File>
+    <File Include="Pedido/PedidoCad.aspx">
+      <publishTime>10/18/2016 10:55:42</publishTime>
+    </File>
+    <File Include="Pedido/PedidoList.aspx">
+      <publishTime>10/18/2016 10:55:42</publishTime>
     </File>
     <File Include="PerfilAcesso/PerfilAcessoFuncionarioCad.aspx">
       <publishTime>10/03/2016 11:53:28</publishTime>
@@ -1551,14 +1581,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="scripts/ai.0.22.19-build00125.min.js">
       <publishTime>09/24/2016 10:55:33</publishTime>
     </File>
+    <File Include="Shared/Modulos.aspx">
+      <publishTime>10/11/2016 00:02:10</publishTime>
+    </File>
     <File Include="Shared/Principal.Master">
-      <publishTime>10/03/2016 13:12:48</publishTime>
+      <publishTime>10/18/2016 10:55:42</publishTime>
     </File>
     <File Include="Shared/ShopAtendimento.aspx">
       <publishTime>10/03/2016 11:51:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/24/2016 21:31:14</publishTime>
+      <publishTime>10/18/2016 11:32:05</publishTime>
     </File>
   </ItemGroup>
 </Project>
