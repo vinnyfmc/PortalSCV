@@ -47,7 +47,7 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Nome", oModel.Nome)
             };
 
-            return banco.ExecQuery<FuncionarioModel>(P, "Funcionario_ListarCombo");
+            return banco.ExecQuery<FuncionarioModel>(P, "Funcionario_ListarComboFuncionario");
         }
 
         public FuncionarioModel Incluir(FuncionarioModel oModel)

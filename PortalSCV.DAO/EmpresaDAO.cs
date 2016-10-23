@@ -27,7 +27,6 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Contato", oModel.Contato),
                 new SqlParameter("@Email", oModel.Email),
                 new SqlParameter("@DataCadastro", oModel.DataCadastro),
                 new SqlParameter("@Ativo", oModel.Ativo)
@@ -51,9 +50,7 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Contato", oModel.Contato),
                 new SqlParameter("@Email", oModel.Email),
-                new SqlParameter("@DataCadastro", oModel.DataCadastro),
                 new SqlParameter("@Ativo", oModel.Ativo)
             };
 
@@ -76,7 +73,6 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Contato", oModel.Contato),
                 new SqlParameter("@Email", oModel.Email),
                 new SqlParameter("@DataCadastro", oModel.DataCadastro),
                 new SqlParameter("@Ativo", oModel.Ativo)
