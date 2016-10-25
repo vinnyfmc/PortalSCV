@@ -16,7 +16,7 @@ namespace PortalSCV.Dominio
         public String Raca { get; set; }
         public String Cor { get; set; }
         public int? Idade { get; set; }
-        public String Peso { get; set; }
+        public float? Peso { get; set; }
         public String Sexo { get; set; }
         public String DescricaoDoencas { get; set; }
         public DateTime? DataNascimento { get; set; }

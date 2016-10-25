@@ -69,7 +69,7 @@ namespace PortalSCV.Layout.Animal
                 txtRaca.Text = oModel.Raca;
                 txtCor.Text = oModel.Cor;
                 txtIdade.Text = oModel.Idade.ToString();
-                txtPeso.Text = oModel.Peso;
+                txtPeso.Text = oModel.Peso.ToString();
                 ddlSexo.SelectedValue = oModel.Sexo.ToString();
                 txtObs.Text = oModel.DescricaoDoencas;
 
@@ -106,7 +106,7 @@ namespace PortalSCV.Layout.Animal
                     oModel.Raca = UTIL.UTIL.Parse<string>(txtRaca.Text);
                     oModel.Cor = UTIL.UTIL.Parse<string>(txtCor.Text);
                     oModel.Idade = UTIL.UTIL.Parse<int>(txtIdade.Text);
-                    oModel.Peso = UTIL.UTIL.Parse<string>(txtPeso.Text);
+                    oModel.Peso = UTIL.UTIL.Parse<float>(txtPeso.Text);
                     oModel.Sexo = UTIL.UTIL.Parse<string>(ddlSexo.SelectedValue);
                     oModel.DescricaoDoencas = UTIL.UTIL.Parse<string>(txtObs.Text);
                     oModel.DataNascimento = UTIL.UTIL.Parse<DateTime>(txtDataNascimento.Text);
