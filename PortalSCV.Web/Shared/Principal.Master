@@ -222,10 +222,10 @@
                         <a href="../Empresa/EmpresaList.aspx"><i class="fa fa-truck"></i> Lista de Empresas</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-users"></i> Lista de Clientes</a>
+                        <a href="../Cliente/ClienteList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Clientes</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-paw"></i> Lista de Animais</a>
+                        <a href="../Animal/AnimalList.aspx"><i class="fa fa-paw"></i> Lista de Animais</a>
                     </li>
                 </ul>
             </div>

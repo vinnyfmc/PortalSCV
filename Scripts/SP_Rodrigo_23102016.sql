@@ -298,3 +298,19 @@ BEGIN
 	AND A.Ativo = ISNULL(@Ativo, A.Ativo)
 END
 GO
+
+
+--*******************************************************
+--*************** LISTAR COMBO CLIENTES *****************
+--*******************************************************
+CREATE PROCEDURE [dbo].[Cliente_ListarComboCliente]
+	@Codigo int = NULL,
+    @Nome varchar(255) = NULL
+AS
+BEGIN
+
+	SELECT 
+		 Codigo, Nome
+	FROM Cliente	
+END
+GO

@@ -56,7 +56,7 @@
                             <li>
                                 <a href="../Login/Acesso.aspx">
                                     <span class="ca-icon">
-                                        <img style="padding-top: 10px; width: 70px; height: 70px;" src="../Layout/images/Button-Turn-On-icon.png" /></span>
+                                        <img style="padding-top: 10px; width: 70px; height: 73px;" src="../Layout/images/Button-Turn-On-icon.png" /></span>
                                     <div class="ca-content">
                                         <h3 class="ca-main">Sair</h3>
                                     </div>

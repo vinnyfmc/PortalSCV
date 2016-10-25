@@ -98,6 +98,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Animal\AnimalCad.aspx" />
+    <Content Include="Animal\AnimalList.aspx" />
+    <Content Include="Cliente\ClienteCad.aspx" />
+    <Content Include="Cliente\ClienteList.aspx" />
     <Content Include="Empresa\EmpresaCad.aspx" />
     <Content Include="Empresa\EmpresaList.aspx" />
     <Content Include="Fornecedor\FornecedorCad.aspx" />
@@ -608,6 +612,34 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal\AnimalCad.aspx.cs">
+      <DependentUpon>AnimalCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Animal\AnimalCad.aspx.designer.cs">
+      <DependentUpon>AnimalCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Animal\AnimalList.aspx.cs">
+      <DependentUpon>AnimalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Animal\AnimalList.aspx.designer.cs">
+      <DependentUpon>AnimalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ClienteCad.aspx.cs">
+      <DependentUpon>ClienteCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ClienteCad.aspx.designer.cs">
+      <DependentUpon>ClienteCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ClienteList.aspx.cs">
+      <DependentUpon>ClienteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ClienteList.aspx.designer.cs">
+      <DependentUpon>ClienteList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empresa\EmpresaCad.aspx.cs">
       <DependentUpon>EmpresaCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
