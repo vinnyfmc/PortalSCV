@@ -80,6 +80,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -98,6 +102,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Agenda\AgendaCad.aspx" />
+    <Content Include="Agenda\AgendaList.aspx" />
     <Content Include="Empresa\EmpresaCad.aspx" />
     <Content Include="Empresa\EmpresaList.aspx" />
     <Content Include="Fornecedor\FornecedorCad.aspx" />
@@ -608,6 +614,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agenda\AgendaCad.aspx.cs">
+      <DependentUpon>AgendaCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agenda\AgendaCad.aspx.designer.cs">
+      <DependentUpon>AgendaCad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda\AgendaList.aspx.cs">
+      <DependentUpon>AgendaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agenda\AgendaList.aspx.designer.cs">
+      <DependentUpon>AgendaList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empresa\EmpresaCad.aspx.cs">
       <DependentUpon>EmpresaCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
