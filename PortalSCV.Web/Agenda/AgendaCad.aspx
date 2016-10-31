@@ -44,19 +44,19 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4">
+            <%--<div class="col-lg-4">
                 <div class="form-group">
                     <label>Cliente</label>
                     <asp:DropDownList runat="server" ID="cmbCliente" CssClass="form-control" Width="100%"></asp:DropDownList>
                 </div>
-            </div>
-             <div class="col-lg-4">
+            </div>--%>
+             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Animal</label>
                     <asp:DropDownList runat="server" ID="cmbAnimal" CssClass="form-control" Width="100%"></asp:DropDownList>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>Funcionario</label>
                     <asp:DropDownList runat="server" ID="cmbFuncionario" CssClass="form-control" Width="100%"></asp:DropDownList>

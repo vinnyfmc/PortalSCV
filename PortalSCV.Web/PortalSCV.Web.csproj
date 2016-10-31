@@ -631,6 +631,7 @@
     </Compile>
     <Compile Include="Agenda\AgendaList.aspx.designer.cs">
       <DependentUpon>AgendaList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Animal\AnimalCad.aspx.cs">
       <DependentUpon>AnimalCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

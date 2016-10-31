@@ -40,15 +40,6 @@ namespace PortalSCV.Agenda {
         protected global::System.Web.UI.WebControls.HiddenField Agenda_Id;
         
         /// <summary>
-        /// cmbCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbCliente;
-        
-        /// <summary>
         /// cmbAnimal control.
         /// </summary>
         /// <remarks>

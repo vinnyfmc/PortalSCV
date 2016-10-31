@@ -16,5 +16,20 @@ namespace PortalSCV.Negocios
             AgendaDAO oDAO = new AgendaDAO();
             return oDAO.Listar(oModel);
         }
+
+        public AgendaModel Salvar(AgendaModel oModel)
+        {
+            AgendaDAO oDAO = new AgendaDAO();
+
+            if (oModel.Codigo.HasValue)
+            {
+                return oDAO.Alterar(oModel);
+            }
+            else
+            {
+                return oDAO.Incluir(oModel);
+            }
+        }
+
     }
 }
