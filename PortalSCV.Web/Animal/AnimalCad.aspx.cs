@@ -106,7 +106,7 @@ namespace PortalSCV.Layout.Animal
                     oModel.Raca = UTIL.UTIL.Parse<string>(txtRaca.Text);
                     oModel.Cor = UTIL.UTIL.Parse<string>(txtCor.Text);
                     oModel.Idade = UTIL.UTIL.Parse<int>(txtIdade.Text);
-                    oModel.Peso = UTIL.UTIL.Parse<float>(txtPeso.Text);
+                    oModel.Peso = Convert.ToDecimal(txtPeso.Text);
                     oModel.Sexo = UTIL.UTIL.Parse<string>(ddlSexo.SelectedValue);
                     oModel.DescricaoDoencas = UTIL.UTIL.Parse<string>(txtObs.Text);
                     oModel.DataNascimento = UTIL.UTIL.Parse<DateTime>(txtDataNascimento.Text);
@@ -116,7 +116,6 @@ namespace PortalSCV.Layout.Animal
 
                     Animal_Id.Value = oModel.Codigo.ToString();
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
-
                 }
             }
             catch (Exception ex)

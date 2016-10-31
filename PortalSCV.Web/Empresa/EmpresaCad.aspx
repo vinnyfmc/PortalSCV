@@ -31,7 +31,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Cadastro de Empresa
+                <h1 class="page-header">Cadastro da Empresa
                 </h1>
 
             </div>
@@ -64,7 +64,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Nome Fantasia</label>
-                    <asp:TextBox runat="server" ID="txtNomeFantasia" CssClass="form-control" placeholder="Digite o nome fantasia do Empresa"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtNomeFantasia" CssClass="form-control" placeholder="Digite o nome fantasia do Empresa" ></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -74,21 +74,21 @@
             <div class="col-lg-2">
                 <div class="form-group">
                     <label>UF</label>
-                    <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF" ></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Cidade</label>
-                    <asp:TextBox runat="server" ID="txtCidade" CssClass="form-control" placeholder="Digite a cidade da empresa"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtCidade" CssClass="form-control" placeholder="Digite a cidade da empresa" ></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Bairro</label>
-                    <asp:TextBox runat="server" ID="txtBairro" CssClass="form-control" placeholder="Digite o bairro da empresa"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtBairro" CssClass="form-control" placeholder="Digite o bairro da empresa" ></asp:TextBox>
                 </div>
             </div>
 
@@ -99,21 +99,21 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Endereço</label>
-                    <asp:TextBox runat="server" ID="txtEndereco" CssClass="form-control" placeholder="Digite o endereço da empresa"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtEndereco" CssClass="form-control" placeholder="Digite o endereço da empresa" ></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-2">
                 <div class="form-group">
                     <label>Número</label>
-                    <asp:TextBox runat="server" ID="txtNumEndereco" CssClass="form-control" placeholder="Digite o número"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtNumEndereco" CssClass="form-control" placeholder="Digite o número" ></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Complemento</label>
-                    <asp:TextBox runat="server" ID="txtComplemento" CssClass="form-control" placeholder="Digite o complemento do endereço"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtComplemento" CssClass="form-control" placeholder="Digite o complemento do endereço" ></asp:TextBox>
                 </div>
             </div>
 
@@ -132,7 +132,7 @@
             <div class="col-lg-2">
                 <div class="form-group">
                     <label>Celular</label>
-                    <asp:TextBox runat="server" ID="txtCelular" CssClass="form-control phone_with_ddd" placeholder="Ex: (99) 99999-9999"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtCelular" CssClass="form-control phone_with_ddd" placeholder="Ex: (99) 99999-9999" ></asp:TextBox>
                 </div>
             </div>
 

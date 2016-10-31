@@ -81,7 +81,7 @@
                             <asp:Repeater ID="Rpt" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td class="center"><a href="ClienteCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
+                                        <td class="center"><a href="AnimalCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Nome") %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Raca") %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Cor") %></td>

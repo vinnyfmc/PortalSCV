@@ -21,7 +21,6 @@ namespace PortalSCV.Dominio
         public String Numero { get; set; }
         public String Telefone { get; set; }
         public String Celular { get; set; }
-        public String Contato { get; set; }
         public String Email { get; set; }
         public DateTime? DataCadastro { get; set; }
         public Boolean? Ativo { get; set; }

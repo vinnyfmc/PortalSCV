@@ -40,5 +40,15 @@ namespace PortalSCV.Negocios
                 //    throw new Exception("Não foi possivel incluir o Perfil do funcionário");
             }
         }
+
+        public PerfilAcessoFuncionarioModel ValidaPerfilAcessoFuncionario(FuncionarioModel oModel)
+        {
+            PerfilAcessoFuncionarioModel oPerfilAcessoFuncionarioModel = new PerfilAcessoFuncionarioModel();
+            PerfilAcessoFuncionarioDAO oDAO = new PerfilAcessoFuncionarioDAO();
+
+            oPerfilAcessoFuncionarioModel = oDAO.RetornaPerfilAcessoFuncionario(oModel);
+
+            return oPerfilAcessoFuncionarioModel;
+        }
     }
 }

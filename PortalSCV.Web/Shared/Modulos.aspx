@@ -24,7 +24,7 @@
                     <div class="moduleContent">
                         <ul class="ca-menu">
                             <li>
-                                <a href="#">
+                                <a id="Venda" runat="server" href="javascript:__doPostBack('linkVenda', '')">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 100px; height: 80px;" src="../Layout/images/slide-cachorro.png" />
                                     </span>
@@ -34,7 +34,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a id="Atendimento" runat="server" href="javascript:__doPostBack('linkAtendimento', '')">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 90px; height: 90px;" src="../Layout/images/dog-doctor.png" />
                                     </span>
@@ -44,7 +44,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../Funcionario/FuncionarioList.aspx">
+                                <%--<a id="Administrativo" runat="server" href="javascript:__doPostBack('linkAdministrativo', '')   ../Funcionario/FuncionarioList.aspx">--%>
+                                <a id="Administrativo" runat="server" href="../Funcionario/FuncionarioList.aspx">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 100px; height: 80px;" src="../Layout/images/dogwork.png" />
                                     </span>
@@ -54,6 +55,7 @@
                                 </a>
                             </li>
                             <li>
+                                <%--<a href="javascript:__doPostBack('linkSair', '')  ../Login/Acesso.aspx">--%>
                                 <a href="../Login/Acesso.aspx">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 70px; height: 73px;" src="../Layout/images/Button-Turn-On-icon.png" /></span>

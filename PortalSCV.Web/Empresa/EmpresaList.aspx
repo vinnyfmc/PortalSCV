@@ -81,7 +81,7 @@
                                     <tr>
                                         <td class="center"><a href="EmpresaCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "RazaoSocial") %></td>
-                                        <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Contato") %></span></td>
+                                        <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Telefone") %></span></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Email") %></td>
                                     </tr>
                                 </ItemTemplate>

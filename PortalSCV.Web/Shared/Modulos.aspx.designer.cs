@@ -22,6 +22,33 @@ namespace PortalSCV.Shared {
         protected global::System.Web.UI.WebControls.ImageButton imgBtnSair;
         
         /// <summary>
+        /// Venda control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Venda;
+        
+        /// <summary>
+        /// Atendimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Atendimento;
+        
+        /// <summary>
+        /// Administrativo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Administrativo;
+        
+        /// <summary>
         /// divmensagem control.
         /// </summary>
         /// <remarks>

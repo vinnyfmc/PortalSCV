@@ -74,7 +74,6 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
                 new SqlParameter("@Email", oModel.Email),
-                new SqlParameter("@DataCadastro", oModel.DataCadastro),
                 new SqlParameter("@Ativo", oModel.Ativo)
             };
 

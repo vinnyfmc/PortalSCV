@@ -25,6 +25,7 @@ namespace PortalSCV.Empresa
                         if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
                         {
                             DetalharObj(id);
+                            btnSalvar.Visible = false;
                         }
                         else
                         {
@@ -61,11 +62,6 @@ namespace PortalSCV.Empresa
                     txtNomeFantasia.Text = oModel.NomeFantasia;
 
                 txtCNPJ.Text = oModel.CNPJ;
-
-                if (oModel.Contato != null)
-                    txtTelefone.Text = oModel.Contato;
-
-
                 txtUF.Text = oModel.UF;
                 txtCidade.Text = oModel.Municipio;
                 txtBairro.Text = oModel.Bairro;

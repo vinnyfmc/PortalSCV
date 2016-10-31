@@ -24,6 +24,7 @@ namespace PortalSCV.Empresa
                     oList = oNegocios.Listar(new EmpresaModel());
                     if (oList.Count > 0)
                     {
+                        btnNovo.Visible = false;
                         Rpt.DataSource = oList;
                         Rpt.DataBind();
                     }

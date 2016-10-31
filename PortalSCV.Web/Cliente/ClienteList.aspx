@@ -85,7 +85,7 @@
                                         <td><%#DataBinder.Eval(Container.DataItem, "Nome") %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Endereco") %></td>
                                         <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Telefone") %></span></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Celular") %></td>
+                                        <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Celular") %></span></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>

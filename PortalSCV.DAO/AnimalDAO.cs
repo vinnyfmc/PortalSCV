@@ -46,7 +46,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Peso", oModel.Peso),
                 new SqlParameter("@Sexo", oModel.Sexo),
                 new SqlParameter("@DescricaoDoencas", oModel.DescricaoDoencas),
-                new SqlParameter("@DataNascimento", oModel.DataNascimento)
+                new SqlParameter("@DataNascimento", oModel.DataNascimento),
+                new SqlParameter("@Ativo", oModel.Ativo)
             };
 
             return banco.ExecQueryReturnOne<AnimalModel>(P, "Animal_Incluir");
