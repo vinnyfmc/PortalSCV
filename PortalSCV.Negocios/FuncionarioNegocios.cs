@@ -53,10 +53,11 @@ namespace PortalSCV.Negocios
                                         </head> 
                                         <body style='font-size:14px;'>
                                             <h1>Portal SCV</h1>
-                                            <p>Prezado(a),</p>
-                                            <p>Suas novas credenciais para acessar o sistema da Portal SCV são:</p>
-                                            E-mail: <strong>" + oModel.Email + @"</strong> <br />
-                                            Senha: <strong>" + oModel.Senha + @"</strong>
+                                            <p>Prezado(a) Usuário(a),</p>
+                                            <p>A senha do seu Login: <strong>" + oModel.Email + @"</strong> foi alterada conforme solicitado.</p>
+                                            <!-- <p>Suas novas credenciais para acessar o sistema da Portal SCV são:</p> -->
+                                            <!-- E-mail: <strong>" + oModel.Email + @"</strong> <br /> -->
+                                            <!-- Senha: <strong>" + oModel.Senha + @"</strong> -->
                                             <br />
                                             <p>Att,</p>
                                             <p>Equipe Portal SCV.</p>

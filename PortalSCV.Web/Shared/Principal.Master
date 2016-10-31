@@ -219,7 +219,13 @@
                         <a href="../Fornecedor/FornecedorList.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Fornecedores</a>
                     </li>
                     <li>
-                        <a href="../Empresa/EmpresaList.aspx"><i class="fa fa-truck"></i> Lista de Empresas</a>
+                        <a href="../Empresa/EmpresaList.aspx"><i class="fa fa-truck"></i> Empresa Cadastrada</a>
+                    </li>
+                    <li>
+                        <a href="../Cliente/ClienteList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Clientes</a>
+                    </li>
+                    <li>
+                        <a href="../Animal/AnimalList.aspx"><i class="fa fa-paw"></i> Lista de Animais</a>
                     </li>
                 </ul>
             </div>

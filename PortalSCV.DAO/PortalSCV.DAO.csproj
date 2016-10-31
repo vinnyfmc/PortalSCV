@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="AgendaDAO.cs" />
     <Compile Include="BD.cs" />
+    <Compile Include="AnimalDAO.cs" />
     <Compile Include="EmpresaDAO.cs" />
     <Compile Include="FornecedorDAO.cs" />
+    <Compile Include="ClienteDAO.cs" />
     <Compile Include="PedidoDAO.cs" />
     <Compile Include="PerfilAcessoDAO.cs" />
     <Compile Include="PerfilAcessoFuncionarioDAO.cs" />

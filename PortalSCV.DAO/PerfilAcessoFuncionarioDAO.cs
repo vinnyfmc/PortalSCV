@@ -45,5 +45,16 @@ namespace PortalSCV.DAO
 
             return banco.ExecQueryReturnOne<PerfilAcessoFuncionarioModel>(P, "PerfilAcessoFuncionario_Alterar");
         }
+
+        public PerfilAcessoFuncionarioModel RetornaPerfilAcessoFuncionario(FuncionarioModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo)
+            };
+
+            return banco.ExecQueryReturnOne<PerfilAcessoFuncionarioModel>(P, "PerfilAcessoFuncionario_PerfilAcessoFuncionario");
+        }
     }
 }

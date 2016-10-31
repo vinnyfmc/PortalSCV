@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="EmpresaList.aspx.cs" Inherits="PortalSCV.Empresa.EmpresaList" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="ClienteList.aspx.cs" Inherits="PortalSCV.Layout.Cliente.ClienteList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="../Layout/js/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../Layout/js/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
@@ -15,8 +15,9 @@
 
             var colID = 0;
             var colNome = 1;
-            var colTel = 2;
-            var colEmail = 3;
+            var colEndereco = 2;
+            var colTel = 3;
+            var colCel = 4;
             
             var oTable = table.dataTable({
                 "language": {
@@ -55,8 +56,8 @@
 
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Lista de Empresas
-                    <asp:LinkButton runat="server" ID="btnNovo" CssClass="btn btn-primary pull-right" Text="Cadastrar Empresas" PostBackUrl="~/Empresa/EmpresaCad.aspx" ></asp:LinkButton>
+                    Lista de Clientes
+                    <asp:LinkButton runat="server" ID="btnNovo" CssClass="btn btn-primary pull-right" Text="Cadastrar Cliente" PostBackUrl="~/Cliente/ClienteCad.aspx" ></asp:LinkButton>
                 </h1>
                     
             </div>
@@ -71,18 +72,20 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
+                                <th>Endereço</th>
                                 <th>Telefone</th>
-                                <th>Email</th>
+                                <th>Celular</th>
                             </tr>
                         </thead>
                         <tbody>
                             <asp:Repeater ID="Rpt" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td class="center"><a href="EmpresaCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "RazaoSocial") %></td>
+                                        <td class="center"><a href="ClienteCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "Nome") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "Endereco") %></td>
                                         <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Telefone") %></span></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Email") %></td>
+                                        <td><span class="Telefone"><%#DataBinder.Eval(Container.DataItem, "Celular") %></span></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -92,4 +95,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>

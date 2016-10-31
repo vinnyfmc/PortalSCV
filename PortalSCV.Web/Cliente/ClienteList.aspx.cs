@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PortalSCV.Negocios;
 using PortalSCV.Dominio;
-using System.Web.Script.Serialization;
 
-namespace PortalSCV.Empresa
+namespace PortalSCV.Layout.Cliente
 {
-    public partial class EmpresaList : System.Web.UI.Page
+    public partial class ClienteList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,13 +18,12 @@ namespace PortalSCV.Empresa
             {
                 try
                 {
-                    EmpresaNegocios oNegocios = new EmpresaNegocios();
+                    ClienteNegocios oNegocios = new ClienteNegocios();
 
-                    List<EmpresaModel> oList = new List<EmpresaModel>();
-                    oList = oNegocios.Listar(new EmpresaModel());
+                    List<ClienteModel> oList = new List<ClienteModel>();
+                    oList = oNegocios.Listar(new ClienteModel());
                     if (oList.Count > 0)
                     {
-                        btnNovo.Visible = false;
                         Rpt.DataSource = oList;
                         Rpt.DataBind();
                     }

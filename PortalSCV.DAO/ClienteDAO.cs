@@ -8,76 +8,88 @@ using System.Data.SqlClient;
 
 namespace PortalSCV.DAO
 {
-    public class EmpresaDAO
+    public class ClienteDAO
     {
-        public List<EmpresaModel> Listar(EmpresaModel oModel)
+        public List<ClienteModel> Listar(ClienteModel oModel)
         {
             DB banco = new DB();
 
             SqlParameter[] P = {
                 new SqlParameter("@Codigo", oModel.Codigo),
-                new SqlParameter("@RazaoSocial", oModel.RazaoSocial),
-                new SqlParameter("@NomeFantasia", oModel.NomeFantasia),
-                new SqlParameter("@CNPJ", oModel.CNPJ),
+                new SqlParameter("@Nome", oModel.Nome),
+                new SqlParameter("@CPF", oModel.CPF),
                 new SqlParameter("@Endereco", oModel.Endereco),
                 new SqlParameter("@Bairro", oModel.Bairro),
                 new SqlParameter("@Municipio", oModel.Municipio),
                 new SqlParameter("@UF", oModel.UF),
+                new SqlParameter("@CEP", oModel.CEP),
                 new SqlParameter("@Complemento", oModel.Complemento),
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Email", oModel.Email),
+                new SqlParameter("@DataNascimento", oModel.DataNascimento),
                 new SqlParameter("@DataCadastro", oModel.DataCadastro),
+                new SqlParameter("@Ativo", oModel.Ativo)
+            };
+
+            return banco.ExecQuery<ClienteModel>(P, "Cliente_Listar");
+        }
+
+        public List<ClienteModel> ListarComboCliente(ClienteModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo),
+                new SqlParameter("@Nome", oModel.Nome)
+            };
+
+            return banco.ExecQuery<ClienteModel>(P, "Cliente_ListarComboCliente");
+        }
+
+        public ClienteModel Incluir(ClienteModel oModel)
+        {
+            DB banco = new DB();
+            SqlParameter[] P = {
+                new SqlParameter("@Nome", oModel.Nome),
+                new SqlParameter("@CPF", oModel.CPF),
+                new SqlParameter("@Endereco", oModel.Endereco),
+                new SqlParameter("@Bairro", oModel.Bairro),
+                new SqlParameter("@Municipio", oModel.Municipio),
+                new SqlParameter("@UF", oModel.UF),
+                new SqlParameter("@CEP", oModel.CEP),
+                new SqlParameter("@Complemento", oModel.Complemento),
+                new SqlParameter("@Numero", oModel.Numero),
+                new SqlParameter("@Telefone", oModel.Telefone),
+                new SqlParameter("@Celular", oModel.Celular),
+                new SqlParameter("@DataNascimento", oModel.DataNascimento),
                 new SqlParameter("@Ativo", oModel.Ativo)
     };
 
-            return banco.ExecQuery<EmpresaModel>(P, "Empresa_Listar");
+            return banco.ExecQueryReturnOne<ClienteModel>(P, "Cliente_Incluir");
         }
 
-        public EmpresaModel Incluir(EmpresaModel oModel)
-        {
-            DB banco = new DB();
-            SqlParameter[] P = {
-                new SqlParameter("@RazaoSocial", oModel.RazaoSocial),
-                new SqlParameter("@NomeFantasia", oModel.NomeFantasia),
-                new SqlParameter("@CNPJ", oModel.CNPJ),
-                new SqlParameter("@Endereco", oModel.Endereco),
-                new SqlParameter("@Bairro", oModel.Bairro),
-                new SqlParameter("@Municipio", oModel.Municipio),
-                new SqlParameter("@UF", oModel.UF),
-                new SqlParameter("@Complemento", oModel.Complemento),
-                new SqlParameter("@Numero", oModel.Numero),
-                new SqlParameter("@Telefone", oModel.Telefone),
-                new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Email", oModel.Email),
-                new SqlParameter("@Ativo", oModel.Ativo)
-            };
-
-            return banco.ExecQueryReturnOne<EmpresaModel>(P, "Empresa_Incluir");
-        }
-
-        public EmpresaModel Alterar(EmpresaModel oModel)
+        public ClienteModel Alterar(ClienteModel oModel)
         {
             DB banco = new DB();
             SqlParameter[] P = {
                 new SqlParameter("@Codigo", oModel.Codigo),
-                new SqlParameter("@RazaoSocial", oModel.RazaoSocial),
-                new SqlParameter("@NomeFantasia", oModel.NomeFantasia),
-                new SqlParameter("@CNPJ", oModel.CNPJ),
+                new SqlParameter("@Nome", oModel.Nome),
+                new SqlParameter("@CPF", oModel.CPF),
                 new SqlParameter("@Endereco", oModel.Endereco),
                 new SqlParameter("@Bairro", oModel.Bairro),
                 new SqlParameter("@Municipio", oModel.Municipio),
                 new SqlParameter("@UF", oModel.UF),
+                new SqlParameter("@CEP", oModel.CEP),
                 new SqlParameter("@Complemento", oModel.Complemento),
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Email", oModel.Email),
+                new SqlParameter("@DataNascimento", oModel.DataNascimento),
                 new SqlParameter("@Ativo", oModel.Ativo)
             };
 
-            return banco.ExecQueryReturnOne<EmpresaModel>(P, "Empresa_Alterar");
+            return banco.ExecQueryReturnOne<ClienteModel>(P, "Cliente_Alterar");
         }
     }
 }
