@@ -32,14 +32,17 @@ namespace PortalSCV.Agenda
         {
             try
             {
-                PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
-                List<PerfilAcessoFuncionarioModel> oListModel = new List<PerfilAcessoFuncionarioModel>();
+                FuncionarioNegocios oNegocios = new FuncionarioNegocios();
+                List<FuncionarioModel> oListModel = new List<FuncionarioModel>();
 
-                oListModel = oNegocios.Listar(new PerfilAcessoFuncionarioModel() { Codigo_PerfilAcesso = 3 });
-                oListModel.Insert(0, new PerfilAcessoFuncionarioModel() { Codigo_Funcionario = 0, Funcionario_Nome = "Selecione" });
-                cmbFuncionario.DataSource = oListModel;
-                cmbFuncionario.DataTextField = "Funcionario_Nome";
-                cmbFuncionario.DataValueField = "Codigo_Funcionario";
+                oListModel = oNegocios.Listar(new FuncionarioModel() { Cargo = 3 });
+                oListModel.Insert(0, new FuncionarioModel() { Codigo = null, Nome = "Selecione", Cargo = 3 });
+
+                var obj = oListModel.Where(p => p.Cargo == 3);
+
+                cmbFuncionario.DataSource = obj;
+                cmbFuncionario.DataTextField = "Nome";
+                cmbFuncionario.DataValueField = "Codigo";
                 cmbFuncionario.DataBind();
 
             }
@@ -63,10 +66,10 @@ namespace PortalSCV.Agenda
                     AgendaModel oModel = new AgendaModel();
 
                     oModel.DataHoraEntrada = UTIL.UTIL.Parse<DateTime>(txData.Text);
-                    oModel.DataHoraSaida = UTIL.UTIL.Parse<DateTime>(txData.Text).AddDays(1);
                     oModel.Codigo_Funcionario = UTIL.UTIL.Parse<int?>(cmbFuncionario.SelectedValue);
+                    oModel.Ativo = true;
 
-                    oListModel = oNegocios.Listar(new AgendaModel() {  });
+                    oListModel = oNegocios.Listar(oModel);
                     if(oListModel.Count > 0)
                     {
                         Rpt.DataSource = oListModel;

@@ -28,6 +28,16 @@ namespace PortalSCV.Dominio
         public String Email { get; set; }
         public String Senha { get; set; }
         public Boolean? Ativo { get; set; }
-        
+        public int? Cargo { get; set; }
+
+        public enum CargoFuncionario
+        {
+            Vendedor = 1,
+            Recepcionista = 2,
+            Veterinario = 3,
+            Tosador = 4,
+            Gerente = 5
+        }
+
     }
 }

@@ -19,7 +19,17 @@ namespace PortalSCV.Layout.Funcionario
             {
                 try
                 {
-                   
+
+                    //Carrega Combo de Cargos
+                    Array aCargos = Enum.GetValues(typeof(FuncionarioModel.CargoFuncionario));
+                    foreach (FuncionarioModel.CargoFuncionario Cargo in aCargos)
+                    {
+                        cbCargo.Items.Add(new ListItem(Cargo.ToString(), ((int)Cargo).ToString()));
+                    }
+
+                    cbCargo.Items.Insert(0, new ListItem() { Selected = true, Text = "Selecione", Value = "" });
+                    
+
                     if (Request.QueryString["Cod"] != null)
                     {
                         int id;
@@ -77,7 +87,8 @@ namespace PortalSCV.Layout.Funcionario
                 txDataAdmissao.Text = ((DateTime)oModel.DataAdmissao).ToString("dd/MM/yyyy"); 
                 
                 cbStatus.SelectedValue = ((bool)oModel.Ativo).ToString();
-
+                cbCargo.SelectedValue = oModel.Cargo.ToString();
+                
                 FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                 if(oFuncionario.Codigo == oModel.Codigo)
                 {
@@ -177,6 +188,10 @@ namespace PortalSCV.Layout.Funcionario
                         oModel.DataAdmissao = UTIL.UTIL.Parse<DateTime>(txDataAdmissao.Text);
 
                     oModel.Ativo = Boolean.Parse(cbStatus.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(cbCargo.SelectedValue))
+                        oModel.Cargo = int.Parse(cbCargo.SelectedValue);
+                    
 
                     oModel = oNegocios.Salvar(oModel);
 

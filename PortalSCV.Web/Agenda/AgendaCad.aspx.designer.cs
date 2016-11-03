@@ -94,6 +94,15 @@ namespace PortalSCV.Agenda {
         protected global::System.Web.UI.WebControls.TextBox txValor;
         
         /// <summary>
+        /// cbStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cbStatus;
+        
+        /// <summary>
         /// txAtendimento control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace PortalSCV.Agenda {
         protected global::System.Web.UI.WebControls.TextBox txAtendimento;
         
         /// <summary>
-        /// txDescrição control.
+        /// txDescricao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txDescrição;
+        protected global::System.Web.UI.WebControls.TextBox txDescricao;
         
         /// <summary>
         /// btnCalcelar control.

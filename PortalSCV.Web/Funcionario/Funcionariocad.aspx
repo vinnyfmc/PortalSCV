@@ -171,7 +171,16 @@
 
         </div>
         
-        <div class="row">       
+        <div class="row">
+            
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Cargo</label>
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="cbCargo">
+                    </asp:DropDownList>
+                </div>
+            </div>
+                   
             <div class="col-lg-2">
                 <div class="form-group">
                     <label>Salário</label>

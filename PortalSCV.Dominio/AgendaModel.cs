@@ -17,6 +17,7 @@ namespace PortalSCV.Dominio
         public DateTime? DataHoraEntrada { get; set; }
         public DateTime? DataHoraSaida { get; set; }
         public Decimal? Valor { get; set; }
+        public Boolean? Ativo { get; set; }
 
         public int? Codigo_Cliente { get; set; }
         public String Nome_Animal { get; set; }

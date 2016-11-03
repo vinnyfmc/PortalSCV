@@ -32,7 +32,8 @@ namespace PortalSCV.DAO
                 //new SqlParameter("@Salario", oModel.Salario),
                 new SqlParameter("@DataAdmissao", oModel.DataAdmissao),
                 new SqlParameter("@DataCadastro", oModel.DataCadastro),
-                new SqlParameter("@Ativo", oModel.Ativo)
+                new SqlParameter("@Ativo", oModel.Ativo),
+                new SqlParameter("@Cargo", oModel.Cargo)
             };
     
             return banco.ExecQuery<FuncionarioModel>(P,"Funcionario_Listar");
@@ -68,7 +69,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@DataNascimento", oModel.DataNascimento),
                 new SqlParameter("@Email", oModel.Email),
                 new SqlParameter("@Salario", oModel.Salario),
-                new SqlParameter("@DataAdmissao", oModel.DataAdmissao)
+                new SqlParameter("@DataAdmissao", oModel.DataAdmissao),
+                new SqlParameter("@Cargo", oModel.Cargo)
             };
             
             return banco.ExecQueryReturnOne<FuncionarioModel>(P, "Funcionario_Incluir");
@@ -94,7 +96,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Email", oModel.Email),
                 new SqlParameter("@Salario", oModel.Salario),
                 new SqlParameter("@DataAdmissao", oModel.DataAdmissao),
-                new SqlParameter("@Ativo", oModel.Ativo)
+                new SqlParameter("@Ativo", oModel.Ativo),
+                new SqlParameter("@Cargo", oModel.Cargo)
             };
 
             return banco.ExecQueryReturnOne<FuncionarioModel>(P, "Funcionario_Alterar");

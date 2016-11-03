@@ -20,7 +20,7 @@
 
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Cadastro de Atendimento
+                    Cadastro de Agendamento
                 </h1>
                         
             </div>
@@ -65,21 +65,21 @@
         </div>
        
         <div class="row">
-            <div class="col-lg-4"> 
-                <div class="form-group">
-                    <label>Data</label>
-                    <asp:TextBox runat="server" ID="txData" CssClass="form-control" Width="100%" TextMode="DateTime"></asp:TextBox>
-                </div>
-            </div>
             <div class="col-lg-2"> 
                 <div class="form-group">
-                    <label>Hora Início</label>
+                    <label>Data</label>
+                    <asp:TextBox runat="server" ID="txData" CssClass="form-control" Width="100%" TextMode="Date"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-1"> 
+                <div class="form-group">
+                    <label>Hr Início</label>
                     <asp:TextBox runat="server" ID="txHoraIni" CssClass="form-control hora" Width="100%"></asp:TextBox>
                 </div>
             </div>
-            <div class="col-lg-2"> 
+            <div class="col-lg-1"> 
                 <div class="form-group">
-                    <label>Hora Fim</label>
+                    <label>Hr Fim</label>
                     <asp:TextBox runat="server" ID="txHoraFim" CssClass="form-control hora" Width="100%"></asp:TextBox>
                 </div>
             </div>
@@ -87,6 +87,15 @@
                 <div class="form-group">
                     <label>Valor</label>
                     <asp:TextBox runat="server" ID="txValor" CssClass="form-control money" Width="100%"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Status</label>
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="cbStatus">
+                        <asp:ListItem Text="Ativo" Value="True" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="Inativo" Value="False"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
             </div>
         </div>
@@ -100,7 +109,7 @@
             <div class="col-lg-6"> 
                 <div class="form-group">
                     <label>Descrição do Serviço</label>
-                    <asp:TextBox runat="server" ID="txDescrição" CssClass="form-control" Width="100%"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txDescricao" CssClass="form-control" Width="100%"></asp:TextBox>
                 </div>
             </div>
         </div>

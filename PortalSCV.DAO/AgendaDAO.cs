@@ -20,7 +20,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@CodigoFuncionario", oModel.Codigo_Funcionario),
                 new SqlParameter("@CodigoCliente", oModel.Codigo_Cliente),
                 new SqlParameter("@DataInicio", oModel.DataHoraEntrada),
-                new SqlParameter("@DataFim", oModel.DataHoraSaida)
+                new SqlParameter("@DataFim", oModel.DataHoraSaida),
+                new SqlParameter("@Ativo", oModel.Ativo)
             };
 
             return banco.ExecQuery<AgendaModel>(P, "Agenda_Listar");
@@ -36,7 +37,9 @@ namespace PortalSCV.DAO
                 new SqlParameter("@TipoAtendimento", oModel.TipoAtendimento),
                 new SqlParameter("@DataHoraEntrada", oModel.DataHoraEntrada),
                 new SqlParameter("@DataHoraSaida", oModel.DataHoraSaida),
-                new SqlParameter("@Valor", oModel.Valor)
+                new SqlParameter("@Valor", oModel.Valor),
+                new SqlParameter("@Ativo", oModel.Ativo)
+                
             };
 
             return banco.ExecQueryReturnOne<AgendaModel>(P, "Agenda_Incluir");
@@ -53,7 +56,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@TipoAtendimento", oModel.TipoAtendimento),
                 new SqlParameter("@DataHoraEntrada", oModel.DataHoraEntrada),
                 new SqlParameter("@DataHoraSaida", oModel.DataHoraSaida),
-                new SqlParameter("@Valor", oModel.Valor)
+                new SqlParameter("@Valor", oModel.Valor),
+                new SqlParameter("@Ativo", oModel.Ativo)
             };
 
             return banco.ExecQueryReturnOne<AgendaModel>(P, "Agenda_Alterar");
