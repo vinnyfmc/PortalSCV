@@ -28,7 +28,7 @@ namespace PortalSCV.Shared {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Venda;
+        protected global::System.Web.UI.WebControls.LinkButton Venda;
         
         /// <summary>
         /// Atendimento control.
@@ -37,7 +37,7 @@ namespace PortalSCV.Shared {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Atendimento;
+        protected global::System.Web.UI.WebControls.LinkButton Atendimento;
         
         /// <summary>
         /// Administrativo control.
@@ -46,7 +46,7 @@ namespace PortalSCV.Shared {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Administrativo;
+        protected global::System.Web.UI.WebControls.LinkButton Administrativo;
         
         /// <summary>
         /// divmensagem control.

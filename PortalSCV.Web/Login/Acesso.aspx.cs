@@ -47,7 +47,8 @@ namespace PortalSCV
                     if (oModel.Codigo.HasValue)
                     {
                         Session.Add("objFuncionario", oModel);
-                        Response.Redirect("~/Shared/Modulos.aspx");
+                        Response.Redirect("~/Shared/Modulos.aspx", false);
+                        Context.ApplicationInstance.CompleteRequest();
                         //Response.Redirect("~/Shared/ShopAtendimento.aspx");
                     }
                     else

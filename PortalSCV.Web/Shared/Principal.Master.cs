@@ -24,12 +24,30 @@ namespace PortalSCV.Shared
 
             if (!IsPostBack)
             {
-                if (info.Name != "Acesso.aspx")
+                if ((info.Name != "Acesso.aspx") && (info.Name != "Modulos.aspx"))
                 {
                     oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                     txtEmailUsuario.Text = oFuncionario.Nome;
 
                     lnkMeuCadastro.NavigateUrl = "~/Funcionario/FuncionarioCad.aspx?Cod=" + oFuncionario.Codigo;
+
+                    switch (oFuncionario.ModuloSelected)
+                    {
+                        case 1:
+                            MenuVenda.Visible = true;
+                            break;
+                        case 2:
+                            MenuAtendimento.Visible = true;
+                            break;
+                        case 3:
+                            MenuAdm.Visible = true;
+                            break;
+                        default:
+                            Response.Redirect("~/Shared/Modulos.aspx");
+                            break;
+                    }
+
+                    
                 }
             }
         }

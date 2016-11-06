@@ -38,6 +38,8 @@ namespace PortalSCV.Dominio
             Tosador = 4,
             Gerente = 5
         }
-
+        
+        public int? ModuloSelected { get; set; }
+        
     }
 }

@@ -24,35 +24,34 @@
                     <div class="moduleContent">
                         <ul class="ca-menu">
                             <li>
-                                <a id="Venda" runat="server" href="javascript:__doPostBack('linkVenda', '')">
+                                <asp:LinkButton runat="server" ID="Venda" Enabled="false" OnClick="Venda_Click" PostBackUrl="#">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 100px; height: 80px;" src="../Layout/images/slide-cachorro.png" />
                                     </span>
                                     <div class="ca-content">
                                         <h2 class="ca-main">&nbsp;&nbsp;PET SHOP</h2>
                                     </div>
-                                </a>
+                                </asp:LinkButton>
                             </li>
                             <li>
-                                <a id="Atendimento" runat="server" href="javascript:__doPostBack('linkAtendimento', '')">
+                                <asp:LinkButton runat="server" ID="Atendimento" Enabled="false" OnClick="Atendimento_Click" PostBackUrl="#">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 90px; height: 90px;" src="../Layout/images/dog-doctor.png" />
                                     </span>
                                     <div class="ca-content">
                                         <h3 class="ca-main">&nbsp;&nbsp;ATENDIMENTO</h3>
                                     </div>
-                                </a>
+                                </asp:LinkButton>
                             </li>
                             <li>
-                                <%--<a id="Administrativo" runat="server" href="javascript:__doPostBack('linkAdministrativo', '')   ../Funcionario/FuncionarioList.aspx">--%>
-                                <a id="Administrativo" runat="server" href="../Funcionario/FuncionarioList.aspx">
+                                <asp:LinkButton runat="server" ID="Administrativo" Enabled="false" OnClick="Administrativo_Click" PostBackUrl="#">
                                     <span class="ca-icon">
                                         <img style="padding-top: 10px; width: 100px; height: 80px;" src="../Layout/images/dogwork.png" />
                                     </span>
                                     <div class="ca-content">
                                         <h3 class="ca-main">&nbsp;&nbsp;ADMINISTRATIVO</h3>
                                     </div>
-                                </a>
+                                </asp:LinkButton>
                             </li>
                             <li>
                                 <%--<a href="javascript:__doPostBack('linkSair', '')  ../Login/Acesso.aspx">--%>

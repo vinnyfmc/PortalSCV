@@ -199,16 +199,34 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul id="MenuVenda" runat="server" class="nav navbar-nav side-nav" visible="false">
                     <li>
-                        <a href="../Pedido/PedidoList.aspx"><i class="fa fa-search" aria-hidden="true"></i> Procurar Pedidos</a>
+                        <a href="../Pedido/PedidoList.aspx"><i class="fa fa-search"></i> Procurar Pedidos</a>
                     </li>
                     <li>
-                        <a href="../Pedido/PedidoCad.aspx"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cadastrar Pedido</a>
+                        <a href="../Pedido/PedidoCad.aspx"><i class="fa fa-shopping-cart"></i> Cadastrar Pedido</a>
                     </li>
                     <li>
-                        <a href="../Produto/ProdutoList.aspx"><i class="fa fa-eyedropper" aria-hidden="true"></i> Lista de Produtos</a>
+                        <a href="../Produto/ProdutoList.aspx"><i class="fa fa-eyedropper"></i> Lista de Produtos</a>
                     </li>
+                    <li>
+                        <a href="../Fornecedor/FornecedorList.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Fornecedores</a>
+                    </li>
+                </ul>
+
+                <ul id="MenuAtendimento" runat="server" class="nav navbar-nav side-nav" visible="false">
+                    <li>
+                        <a href="../Cliente/ClienteList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Clientes</a>
+                    </li>
+                    <li>
+                        <a href="../Agenda/AgendaList.aspx"><i class="fa fa-fw fa-users"></i> Agenda</a>
+                    </li>
+                    <li>
+                        <a href="../Animal/AnimalList.aspx"><i class="fa fa-paw"></i> Lista de Animais</a>
+                    </li>
+                </ul>
+
+                <ul id="MenuAdm" runat="server" class="nav navbar-nav side-nav" visible="false">
                     <li>
                         <a href="../PerfilAcesso/PerfilAcessoFuncionarioList.aspx"><i class="glyphicon glyphicon-user"></i> Lista de Perfis de Acesso</a>
                     </li>
@@ -216,16 +234,7 @@
                         <a href="../Funcionario/FuncionarioList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Funcionários</a>
                     </li>
                     <li>
-                        <a href="../Fornecedor/FornecedorList.aspx"><i class="fa fa-fw fa-list-alt"></i> Lista de Fornecedores</a>
-                    </li>
-                    <li>
                         <a href="../Empresa/EmpresaList.aspx"><i class="fa fa-truck"></i> Empresa Cadastrada</a>
-                    </li>
-                    <li>
-                        <a href="../Cliente/ClienteList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Clientes</a>
-                    </li>
-                    <li>
-                        <a href="../Animal/AnimalList.aspx"><i class="fa fa-paw"></i> Lista de Animais</a>
                     </li>
                 </ul>
             </div>

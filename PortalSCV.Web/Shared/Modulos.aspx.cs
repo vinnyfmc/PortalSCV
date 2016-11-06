@@ -19,57 +19,124 @@ namespace PortalSCV.Shared
                 HtmlGenericControl Master_Body = (HtmlGenericControl)Master.FindControl("Master_Body");
                 Master_Body.Style.Add("Display", "none");
 
-                //ValidaPerfilAcessoFuncionario();
+                ValidaPerfilAcessoFuncionario();
             }
         }
 
 
         private void ValidaPerfilAcessoFuncionario()
         {
+            DisableLinkButton(Venda);
+            DisableLinkButton(Atendimento);
+            DisableLinkButton(Administrativo);
+            
             FuncionarioModel oFuncionario = new FuncionarioModel();
-            PerfilAcessoFuncionarioModel oPerfilAcessoFuncionarioModel = new PerfilAcessoFuncionarioModel();
+            List<PerfilAcessoFuncionarioModel> oPerfilAcessoFuncionarioList = new List<PerfilAcessoFuncionarioModel>();
             PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
 
             oFuncionario = (FuncionarioModel)Session["objFuncionario"];
 
-            oPerfilAcessoFuncionarioModel = oNegocios.ValidaPerfilAcessoFuncionario(oFuncionario);
+            oPerfilAcessoFuncionarioList = oNegocios.Listar(new PerfilAcessoFuncionarioModel { Codigo_Funcionario = oFuncionario.Codigo });
 
-            switch (oPerfilAcessoFuncionarioModel.Codigo_PerfilAcesso)
+            if(oPerfilAcessoFuncionarioList.Count > 0)
+            { 
+                foreach (PerfilAcessoFuncionarioModel Perfil in oPerfilAcessoFuncionarioList)
+                {
+                    ValidaAcesso((int)Perfil.Codigo_PerfilAcesso);
+                }
+            }else
             {
-                case 1:
-                    ValidaAcesso("Venda");
-                    break;
-                case 2:
-                    ValidaAcesso("Atendimento");
-                    break;
-                case 3:
-                    ValidaAcesso("Administrativo");
-                    break;
-                default:
-                    break;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "NoAccess", "$(document).MensagemModal(3,'Nenhum perfil de acesso foi encontrado, entre em contato com o Gerente ou o Administrador do sistema.');", true);
             }
         }
 
-        private void ValidaAcesso(String oClicado)
+        private void ValidaAcesso(int Perfil)
         {
-            switch (oClicado)
+            switch (Perfil)
             {
-                case "Venda":
-                    Atendimento.Disabled = true;
-                    Administrativo.Disabled = true;
-                    divmensagem.Visible = true;
+                case 1: //VENDA
+                    EnableLinkButton(Venda);
                     break;
-                case "Atendimento":
-                    Venda.Disabled = true;
-                    Administrativo.Disabled = true;
-                    divmensagem.Visible = true;
+                case 2: //ATENDIMENTO
+                    EnableLinkButton(Atendimento);
                     break;
-                case "Administrativo":
-                    Venda.Disabled = false;
-                    Atendimento.Disabled = false;
-                    divmensagem.Visible = true;
+                case 3://ADMINISTRATIVO
+                    EnableLinkButton(Administrativo);
+                    break;
+                case 4://MASTER
+                    EnableLinkButton(Venda);
+                    EnableLinkButton(Atendimento);
+                    EnableLinkButton(Administrativo);
                     break;
             }
         }
+
+        protected void Venda_Click(object sender, EventArgs e)
+        {
+            FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+            oFuncionario.ModuloSelected = 1;
+            Session["objFuncionario"] = oFuncionario;
+            Response.Redirect("~/Pedido/PedidoCad.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void Atendimento_Click(object sender, EventArgs e)
+        {
+            FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+            oFuncionario.ModuloSelected = 2;
+            Session["objFuncionario"] = oFuncionario;
+            Response.Redirect("~/Agenda/AgendaList.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void Administrativo_Click(object sender, EventArgs e)
+        {
+            FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+            oFuncionario.ModuloSelected = 3;
+            Session["objFuncionario"] = oFuncionario;
+            Response.Redirect("~/Funcionario/FuncionarioList.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        public static void DisableLinkButton(LinkButton linkButton)
+        {
+            linkButton.Attributes.CssStyle[HtmlTextWriterStyle.Cursor] = "not-allowed";
+            if (linkButton.Enabled != false)
+            {
+                linkButton.Enabled = false;
+            }
+
+            if (linkButton.OnClientClick != null)
+            {
+                linkButton.OnClientClick = null;
+            }
+        }
+
+        public static void EnableLinkButton(LinkButton linkButton)
+        {
+            linkButton.Attributes.CssStyle[HtmlTextWriterStyle.Cursor] = "pointer";
+            if (linkButton.Enabled != true)
+            {
+                linkButton.Enabled = true;
+            }
+
+            if (linkButton.OnClientClick == null)
+            {
+                switch (linkButton.ID)
+                {
+                    case "Venda":
+                        linkButton.OnClientClick = "Venda_Click";
+                        break;
+                    case "Atendimento":
+                        linkButton.OnClientClick = "Atendimento_Click";
+                        break;
+                    case "Administrativo":
+                        linkButton.OnClientClick = "Administrativo_Click";
+                        break;
+                }
+                
+            }
+        }
+
     }
 }
