@@ -67,10 +67,10 @@ namespace PortalSCV.Agenda
                 }
 
                 oListModel_AUX.Insert(0, new AnimalModel() { Codigo = null, Nome = "Selecione" });
-                cmbFuncionario.DataSource = oListModel_AUX;
-                cmbFuncionario.DataTextField = "Nome";
-                cmbFuncionario.DataValueField = "Codigo";
-                cmbFuncionario.DataBind();
+                cmbAnimal.DataSource = oListModel_AUX;
+                cmbAnimal.DataTextField = "Nome";
+                cmbAnimal.DataValueField = "Codigo";
+                cmbAnimal.DataBind();
 
             }
             catch (Exception ex)
