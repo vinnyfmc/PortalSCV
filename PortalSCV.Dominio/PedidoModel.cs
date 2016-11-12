@@ -18,5 +18,14 @@ namespace PortalSCV.Dominio
         public int? PedidoComplementar { get; set; }
 
         public DateTime? DataCriacaoFim { get; set; }
+
+        public enum TipoPedido
+        {
+            Compra = 1,
+            Venda = 2,
+            PerdaGanho = 3,
+            Atendimento = 4
+        }
+
     }
 }
