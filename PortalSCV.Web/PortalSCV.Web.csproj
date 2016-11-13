@@ -108,6 +108,7 @@
     <Content Include="Agenda\AgendaList.aspx" />
     <Content Include="Animal\AnimalCad.aspx" />
     <Content Include="Animal\AnimalList.aspx" />
+    <Content Include="Caixa\CaixaList.aspx" />
     <Content Include="Cliente\ClienteCad.aspx" />
     <Content Include="Cliente\ClienteList.aspx" />
     <Content Include="Empresa\EmpresaCad.aspx" />
@@ -647,6 +648,13 @@
     </Compile>
     <Compile Include="Animal\AnimalList.aspx.designer.cs">
       <DependentUpon>AnimalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Caixa\CaixaList.aspx.cs">
+      <DependentUpon>CaixaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Caixa\CaixaList.aspx.designer.cs">
+      <DependentUpon>CaixaList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\ClienteCad.aspx.cs">
       <DependentUpon>ClienteCad.aspx</DependentUpon>

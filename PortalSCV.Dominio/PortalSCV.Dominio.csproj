@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AgendaModel.cs" />
     <Compile Include="AnimalModel.cs" />
+    <Compile Include="CaixaModel.cs" />
     <Compile Include="EmailModel.cs" />
     <Compile Include="EmpresaModel.cs" />
     <Compile Include="FornecedorModel.cs" />
