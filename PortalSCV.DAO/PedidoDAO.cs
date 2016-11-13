@@ -15,12 +15,7 @@ namespace PortalSCV.DAO
             DB banco = new DB();
 
             SqlParameter[] P = {
-                new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
-                new SqlParameter("@Tipo", oModel.Tipo),
-                new SqlParameter("@Status", oModel.Status),
-                new SqlParameter("@DataCriacao", oModel.DataCriacao),
-                new SqlParameter("@DataCriacaoFim", oModel.DataCriacaoFim),
-                new SqlParameter("@PedidoComplementar", oModel.PedidoComplementar)
+                new SqlParameter("@Status", oModel.Status)                
             };
 
             return banco.ExecQuery<PedidoModel>(P, "Pedido_Listar");

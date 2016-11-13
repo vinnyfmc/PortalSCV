@@ -80,10 +80,10 @@
                             <asp:Repeater ID="Rpt" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td class="center"><a href="PedidoCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
+                                        <td class="center"><a href="PedidoCad.aspx?Pedido=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Tipo") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "DataCriacao") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "ValorTotal") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "DataCriacao",  "{0:dd/MM/yyyy hh:mm:ss tt}") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "ValorTotal",  "{0:c}") %></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
