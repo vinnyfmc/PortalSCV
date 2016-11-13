@@ -43,5 +43,17 @@ namespace PortalSCV.Negocios
             return oDAO.AlterarStatus(oModel);
         }
 
+        public List<Pedido_ProdutosModel> ListarProdutoPedido(Pedido_ProdutosModel oModel)
+        {
+            PedidoDAO oDAO = new PedidoDAO();
+            return oDAO.Pedido_Produtos_Listar(oModel);
+        }
+
+        public Pedido_ProdutosModel IncluirProdutoPedido(Pedido_ProdutosModel oModel)
+        {
+            PedidoDAO oDAO = new PedidoDAO();
+            return oDAO.Pedido_Produtos_Incluir(oModel);
+        }
+
     }
 }

@@ -13,15 +13,6 @@ namespace PortalSCV.Pedido {
     public partial class PedidoCad {
         
         /// <summary>
-        /// InfoPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoPedido;
-        
-        /// <summary>
         /// txDataPedido control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace PortalSCV.Pedido {
         protected global::System.Web.UI.WebControls.Label txCadastradoPor;
         
         /// <summary>
+        /// CodigoFunc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CodigoFunc;
+        
+        /// <summary>
         /// PanelAviso control.
         /// </summary>
         /// <remarks>
@@ -58,13 +58,13 @@ namespace PortalSCV.Pedido {
         protected global::System.Web.UI.UpdatePanel PanelAviso;
         
         /// <summary>
-        /// Label1 control.
+        /// CodigoPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label CodigoPedido;
         
         /// <summary>
         /// cmbTipoPedido control.
@@ -103,24 +103,6 @@ namespace PortalSCV.Pedido {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl H3;
         
         /// <summary>
-        /// DivAvisoItensPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAvisoItensPedido;
-        
-        /// <summary>
-        /// AvisoItensPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AvisoItensPedido;
-        
-        /// <summary>
         /// tblItens control.
         /// </summary>
         /// <remarks>
@@ -157,6 +139,24 @@ namespace PortalSCV.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txQuantidade;
         
         /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// vlProduto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox vlProduto;
+        
+        /// <summary>
         /// btnIncluirItem control.
         /// </summary>
         /// <remarks>
@@ -175,22 +175,22 @@ namespace PortalSCV.Pedido {
         protected global::System.Web.UI.UpdatePanel UpdPanelTableItens;
         
         /// <summary>
-        /// DivAvisoIncluirItem control.
+        /// DivAvisoItensPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAvisoIncluirItem;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAvisoItensPedido;
         
         /// <summary>
-        /// AvisoIncluirItem control.
+        /// AvisoItensPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AvisoIncluirItem;
+        protected global::System.Web.UI.WebControls.Label AvisoItensPedido;
         
         /// <summary>
         /// RptItensPedido control.

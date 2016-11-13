@@ -23,8 +23,7 @@ namespace PortalSCV.Dominio
         {
             Compra = 1,
             Venda = 2,
-            PerdaGanho = 3,
-            Atendimento = 4
+            Atendimento = 3
         }
 
     }

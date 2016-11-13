@@ -47,6 +47,7 @@
     <Compile Include="FornecedorModel.cs" />
     <Compile Include="ClienteModel.cs" />
     <Compile Include="PedidoModel.cs" />
+    <Compile Include="Pedido_ProdutosModel.cs" />
     <Compile Include="PerfilAcessoModel.cs" />
     <Compile Include="PerfilAcessoFuncionarioModel.cs" />
     <Compile Include="ProdutoModel.cs" />
