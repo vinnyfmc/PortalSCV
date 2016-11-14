@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="PedidoList.aspx.cs" Inherits="PortalSCV.Pedido.PedidoList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="CaixaList.aspx.cs" Inherits="PortalSCV.Caixa.CaixaList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript" src="../Layout/js/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -7,17 +7,19 @@
     <script type="text/javascript" src="../Layout/js/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
     <script type="text/javascript" src="../Layout/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
     <link href="../Layout/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" rel="stylesheet" />
-    
+    <script type="text/javascript" src="../Layout/js/plugins/mask/jquery.maskMoney.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
-           
+            $(".money").maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '', decimal: ',', affixesStay: false });
+
             var table = $('#tblList');
 
             var colID = 0;
-            var colNome = 1;
-            var colTel = 2;
-            var colEmail = 3;
-            
+            var colData = 1;
+            var colValor = 2;
+            var colDescricao = 3;
+           
             var oTable = table.dataTable({
                 "language": {
                     "aria": {
@@ -55,35 +57,80 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">
-                    Pedidos
-                    <asp:LinkButton runat="server" ID="btnNovo" CssClass="btn btn-primary pull-right" Text="Cadastrar Pedido" PostBackUrl="~/Pedido/PedidoCad.aspx" ></asp:LinkButton>
-                </h1>
-                    
+                <h3 class="page-header">
+                    Mês
+                    <asp:DropDownList runat="server" ID="cmbMes" Width="300px"></asp:DropDownList>
+
+                    <asp:LinkButton runat="server" ID="btnFiltrar" CssClass="btn btn-sm btn-primary" OnClick="btnFiltrar_Click">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </asp:LinkButton>
+
+                </h3>
             </div>
         </div>
         <!-- /.row -->
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Resumido</h4>
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Vendas</label>
+                    <asp:TextBox runat="server" ID="ReceitaVendas" CssClass="form-control money" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Atendimentos</label>
+                    <asp:TextBox runat="server" ID="ReceitaAtendimentos" CssClass="form-control money" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Compras</label>
+                    <asp:TextBox runat="server" ID="DespesaCompras" CssClass="form-control money" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Desp. Atendimentos</label>
+                    <asp:TextBox runat="server" ID="DespesaAtendimentos" CssClass="form-control money" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Salários</label>
+                    <asp:TextBox runat="server" ID="DespesaSalarios" CssClass="form-control money" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+
 
         <div class="row">
             <div class="col-lg-12">
+                <h4>Detalhado</h4>
+                <hr />
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped" id="tblList">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Tipo</th>
                                 <th>Data</th>
                                 <th>Valor</th>
+                                <th>Descrição</th>
                             </tr>
                         </thead>
                         <tbody>
                             <asp:Repeater ID="Rpt" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td class="center"><a href="PedidoCad.aspx?Pedido=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Tipo") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "DataCriacao",  "{0:dd/MM/yyyy hh:mm:ss tt}") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "ValorTotal",  "{0:c}") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "Data", "{0:dd/MM/yyyy hh:mm:ss tt}") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "Valor", "{0:c}") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "Descricao") %></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -92,6 +139,7 @@
                 </div>
             </div>
         </div>
+    
+    
     </div>
-
 </asp:Content>

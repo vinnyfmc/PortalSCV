@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shared/Principal.Master" AutoEventWireup="true" CodeBehind="PedidoCad.aspx.cs" Inherits="PortalSCV.Pedido.PedidoCad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script type="text/javascript" src="../Layout/js/plugins/mask/jquery.maskMoney.js"></script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -8,19 +11,20 @@
     
         <div class="row">
             <div class="col-lg-4" style="padding:30px">
-                <div id="InfoPedido" runat="server" visible="false">
+                <div id="InfoPedido">
                     <strong>Data do Pedido:</strong><asp:Label runat="server" ID="txDataPedido" Text=""></asp:Label>
                     <br />
                     <strong>Status do Pedido:</strong><asp:Label runat="server" ForeColor="Red" ID="txStatusPedido" Text=""></asp:Label>
                     <br />
                     <strong>Cadastrado Por:</strong><asp:Label runat="server" ID="txCadastradoPor" Text="" ></asp:Label>
+                    <asp:HiddenField runat="server" ID="CodigoFunc" />
                 </div>
             </div>
             <div class="col-lg-4">
                 <asp:UpdatePanel runat="server" ID="PanelAviso">
                     <ContentTemplate>
                         <h1 style="padding:30px"><strong>
-                            Pedido Nr.<asp:Label runat="server" ForeColor="Blue" ID="Label1" Text="0"></asp:Label>
+                            Pedido Nr.<asp:Label runat="server" ForeColor="Blue" ID="CodigoPedido" Text="0"></asp:Label>
                         </strong></h1>
                     </ContentTemplate>
                     <Triggers>
@@ -72,11 +76,6 @@
             </div>
         </div>
 
-        <div class="alert alert-danger alert-dismissable" style="width:300px; padding:4px;" runat="server" id="DivAvisoItensPedido" visible="false">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <asp:Label runat="server" ID="AvisoItensPedido"></asp:Label>
-        </div>
-
         <div id="tblItens" runat="server" class="row col-lg-12"><!--Tabela Itens-->
                             
             <div class="panel panel-default">
@@ -89,7 +88,7 @@
                             <div class="col-lg-5">
                                 <div class="form-group" >
                                     <label>Produto</label>
-                                    <asp:DropDownList runat="server" CssClass="form-control chosen-select" ID="ddlProduto" Width="100%">
+                                    <asp:DropDownList runat="server" CssClass="form-control chosen-select" ID="ddlProduto" Width="90%" AutoPostBack="true" OnSelectedIndexChanged="ddlProduto_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -99,14 +98,25 @@
                                     <asp:TextBox runat="server" ID="txQuantidade" CssClass="form-control" TextMode="Number" Width="100px"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-2">
+                                <div class="form-group" >
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" ClientIDMode="Static" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                        <ContentTemplate>
+                                            <label>Valor</label>
+                                            <asp:TextBox runat="server" ID="vlProduto" CssClass="form-control" Width="100px"></asp:TextBox>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlProduto" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="form-group" >
                                     <asp:Button runat="server" ID="btnIncluirItem" CssClass="btn btn-primary pull-left" style="margin-top:25px" Text="Incluir" OnClick="btnIncluirItem_Click" />
                                 </div>
                             </div>
                         </div>
-
-                        
 
                     </div>
 
@@ -114,10 +124,10 @@
 
                         <asp:UpdatePanel ID="UpdPanelTableItens" runat="server" ClientIDMode="Static" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
-                                            
-                            <div class="alert alert-danger alert-dismissable" style="width:90%; padding:4px;" runat="server" id="DivAvisoIncluirItem" visible="false">
+                           
+                            <div class="alert alert-danger alert-dismissable" style="width:500px; padding:4px;" runat="server" id="DivAvisoItensPedido" visible="false">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <asp:Label runat="server" ID="AvisoIncluirItem"></asp:Label>
+                                <asp:Label runat="server" ID="AvisoItensPedido"></asp:Label>
                             </div>
 
                             <table class="table table-striped table-bordered table-hover" id="tblItensPedido">
@@ -132,20 +142,19 @@
                                 </thead>
                                 <tbody>
 
-                                    <asp:Repeater ID="RptItensPedido" runat="server" OnItemDataBound="RptItensPedido_ItemDataBound" OnItemCreated="RptItensPedido_ItemCreated" OnItemCommand="RptItensPedido_ItemCommand">
+                                    <asp:Repeater ID="RptItensPedido" runat="server" OnItemCommand="RptItensPedido_ItemCommand">
                                         <ItemTemplate>
                                             <tr>
                                                 <td style="display:none;">
-                                                    <asp:HiddenField runat="server" ID="idPedido_item" Value='<%#DataBinder.Eval(Container.DataItem, "IdPedido.Id") %>' />
-                                                    <asp:HiddenField runat="server" ID="idPedido_Produto_item" Value='<%#DataBinder.Eval(Container.DataItem, "Id") %>' />
+                                                    <asp:HiddenField runat="server" ID="idPedido_item" Value='<%#DataBinder.Eval(Container.DataItem, "Codigo_Pedido") %>' />
+                                                    <asp:HiddenField runat="server" ID="Codigo" Value='<%#DataBinder.Eval(Container.DataItem, "Codigo") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="NomeProduto_item" Text='<%#DataBinder.Eval(Container.DataItem, "IdProduto.Nome") %>'></asp:Label>
-                                                    <asp:HiddenField runat="server" ID="idProduto_item" Value='<%#DataBinder.Eval(Container.DataItem, "IdProduto.Id") %>' />
+                                                    <asp:Label runat="server" ID="DescricaoProduto" Text='<%#DataBinder.Eval(Container.DataItem, "DescricaoProduto") %>'></asp:Label>
+                                                    <asp:HiddenField runat="server" ID="Codigo_Produto" Value='<%#DataBinder.Eval(Container.DataItem, "Codigo_Produto") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="txQuantidade" Text='<%#DataBinder.Eval(Container.DataItem, "QuantidadeSolicitada") %>'></asp:Label>
-                                                    <asp:Label runat="server" Visible="false" ID="txQuantidadeConfirmada" Text='<%#DataBinder.Eval(Container.DataItem, "QuantidadeConfirmada") %>'></asp:Label>
+                                                    <asp:Label runat="server" ID="txQuantidade" Text='<%#DataBinder.Eval(Container.DataItem, "Quantidade") %>'></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Label runat="server" ID="txValorUnitario" Text='<%# String.Format("{0:f2}",DataBinder.Eval(Container.DataItem, "ValorUnitario"))%>'></asp:Label>
@@ -166,7 +175,9 @@
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="btnIncluirItem" EventName="Click" />
-                            </Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnSalvar" EventName="Click" />
+                            <asp:AsyncPostBackTrigger ControlID="btnExcluir" EventName="Click" />
+                        </Triggers>
                         </asp:UpdatePanel>
 
                     </div>

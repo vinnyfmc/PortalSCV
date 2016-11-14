@@ -15,12 +15,7 @@ namespace PortalSCV.DAO
             DB banco = new DB();
 
             SqlParameter[] P = {
-                new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
-                new SqlParameter("@Tipo", oModel.Tipo),
-                new SqlParameter("@Status", oModel.Status),
-                new SqlParameter("@DataCriacao", oModel.DataCriacao),
-                new SqlParameter("@DataCriacaoFim", oModel.DataCriacaoFim),
-                new SqlParameter("@PedidoComplementar", oModel.PedidoComplementar)
+                new SqlParameter("@Status", oModel.Status)                
             };
 
             return banco.ExecQuery<PedidoModel>(P, "Pedido_Listar");
@@ -32,7 +27,8 @@ namespace PortalSCV.DAO
             SqlParameter[] P = {
                 new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
                 new SqlParameter("@Tipo", oModel.Tipo),
-                new SqlParameter("@Observacao", oModel.Observacao)
+                new SqlParameter("@Observacao", oModel.Observacao),
+                new SqlParameter("@PedidoComplementar", oModel.PedidoComplementar)
             };
 
             return banco.ExecQueryReturnOne<PedidoModel>(P, "Pedido_Incluir");
@@ -69,6 +65,34 @@ namespace PortalSCV.DAO
             };
 
             return banco.ExecQueryReturnOne<PedidoModel>(P, "Pedido_Complementar");
+        }
+
+        public List<Pedido_ProdutosModel> Pedido_Produtos_Listar(Pedido_ProdutosModel oModel)
+        {
+
+            DB banco = new DB();
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo), 
+                new SqlParameter("@Codigo_Produto", oModel.Codigo_Produto),
+                new SqlParameter("@Codigo_Pedido", oModel.Codigo_Pedido),
+                new SqlParameter("@Status_Pedido", oModel.StatusPedido)
+            };
+
+            return banco.ExecQuery<Pedido_ProdutosModel>(P, "Pedido_Produtos_Listar");
+        }
+
+        public Pedido_ProdutosModel Pedido_Produtos_Incluir(Pedido_ProdutosModel oModel)
+        {
+
+            DB banco = new DB();
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo_Produto", oModel.Codigo_Produto),
+                new SqlParameter("@Codigo_Pedido", oModel.Codigo_Pedido),
+                new SqlParameter("@Quantidade", oModel.Quantidade),
+                new SqlParameter("@ValorUnitario", oModel.ValorUnitario)
+            };
+
+            return banco.ExecQueryReturnOne<Pedido_ProdutosModel>(P, "Pedido_Produtos_Incluir");
         }
 
     }

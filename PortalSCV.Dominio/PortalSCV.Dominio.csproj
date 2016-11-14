@@ -42,11 +42,13 @@
   <ItemGroup>
     <Compile Include="AgendaModel.cs" />
     <Compile Include="AnimalModel.cs" />
+    <Compile Include="CaixaModel.cs" />
     <Compile Include="EmailModel.cs" />
     <Compile Include="EmpresaModel.cs" />
     <Compile Include="FornecedorModel.cs" />
     <Compile Include="ClienteModel.cs" />
     <Compile Include="PedidoModel.cs" />
+    <Compile Include="Pedido_ProdutosModel.cs" />
     <Compile Include="PerfilAcessoModel.cs" />
     <Compile Include="PerfilAcessoFuncionarioModel.cs" />
     <Compile Include="ProdutoModel.cs" />

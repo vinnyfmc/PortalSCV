@@ -31,56 +31,47 @@ namespace PortalSCV.Negocios
             }
         }
 
-        public ProdutoModel AlterarEstoque(ProdutoModel oModel)
+        public string AlterarEstoque(int Codigo_Produto, int Quantidade)
         {
             List<ProdutoModel> oList = new List<ProdutoModel>();
-            oList = Listar(oModel);
+            oList = Listar(new ProdutoModel { Codigo = Codigo_Produto });
             if (oList.Count > 0)
             {
-
-                if (oModel.QuantidadeEstoque < 0) //SAIDA DO ESTOQUE
+                ProdutoModel Produto = new ProdutoModel();
+                Produto = oList[0];
+                
+                if (Quantidade < 0) //SAIDA DO ESTOQUE
                 {
-                    if (oList[0].QuantidadeEstoque + oModel.QuantidadeEstoque < 0) //Verifica se tem a quantidade em estoque para retirada
+                    if (Produto.QuantidadeEstoque + Quantidade < 0) //Verifica se tem a quantidade em estoque para retirada
                     {
-                        oModel.AvisoEstoque = "A quantidade solicitada para este o produto '" + oList[0].QuantidadeEstoque + oModel.QuantidadeEstoque + "', ultrapassa a quantidade em estoque. (quantidade em estoque: " + oList[0].QuantidadeEstoque.ToString() + ".)";
-                        return oModel;
+                        return "A quantidade solicitada para este o produto (" + Quantidade.ToString() + "), ultrapassa a quantidade em estoque. (quantidade em estoque: " + Produto.QuantidadeEstoque.ToString() + ".)";
                     }
                 }
 
                 //Nova quantidade
-                oModel.QuantidadeEstoque = oList[0].QuantidadeEstoque + oModel.QuantidadeEstoque;
+                Quantidade = (int)oList[0].QuantidadeEstoque + Quantidade;
+                Produto.QuantidadeEstoque = Quantidade;
+
+                ProdutoDAO DAOProduto = new ProdutoDAO();
+                DAOProduto.AlterarQuantidadeEstoque(Produto);
+
+                if (oList.Count > 0)
+                {
+                    //DISPARA EMAIL INFORMANDO A NECESSIDADE DA COMPRA DO MATERIAL
+                    if (Quantidade <= Produto.QuantidadeEstoque_Minima)
+                    {
+                        string CorpoEmail = string.Format("Produto: {0} <BR />Limite minimo em estoque: {1} <BR/>Quantidade em estoque: {2} <BR/>Aviso: Providencie com urgência a compra deste produto para manter o estoque abastecido.", Produto.Descricao, Produto.QuantidadeEstoque_Minima.ToString(), Produto.QuantidadeEstoque);
+                        UTIL.UTIL.EnviarEmail("vinnyfmc@gmail.com", "Reposição de produto - Aviso Automático", CorpoEmail);
+                    }
+                }
+
             }
             else
-            {
-                if (oModel.QuantidadeEstoque < 0) //SAIDA DO ESOTOQUE
-                {
-                    oModel.AvisoEstoque = "O Produto não existe no estoque!";
-                    return oModel;
-                }
+            {   
+                return "O Produto cód." + Codigo_Produto.ToString() + " não está cadastrado!";
             }
-
-            //ALTERA O ESTOQUE
-            ProdutoDAO oDAO = new ProdutoDAO();
-            if (oModel.Codigo.HasValue)
-            {
-                oDAO.AlterarQuantidadeEstoque(oModel);
-            }
-            else
-            {
-                oDAO.Incluir(oModel);
-            }
-
-            if (oList.Count > 0)
-            {
-                //DISPARA EMAIL INFORMANDO A NECESSIDADE DA COMPRA DO MATERIAL
-                if (oModel.QuantidadeEstoque <= oList[0].QuantidadeEstoque_Minima)
-                {
-                    string CorpoEmail = string.Format("Produto: {0} <BR />Limite minimo em estoque: {1} <BR/>Quantidade em estoque: {2} <BR/>Aviso: Providencie com urgência a compra deste produto para manter o estoque abastecido.", oList[0].Descricao, oList[0].QuantidadeEstoque_Minima.ToString(), oModel.QuantidadeEstoque.ToString());
-                    UTIL.UTIL.EnviarEmail("vinnyfmc@gmail.com", "Reposição de produto - Aviso Automático", CorpoEmail);
-                }
-            }
-
-            return oModel;
+            
+            return "OK";
         }
 
     }

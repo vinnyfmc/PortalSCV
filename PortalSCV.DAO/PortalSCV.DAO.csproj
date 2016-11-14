@@ -43,6 +43,7 @@
     <Compile Include="AgendaDAO.cs" />
     <Compile Include="BD.cs" />
     <Compile Include="AnimalDAO.cs" />
+    <Compile Include="CaixaDAO.cs" />
     <Compile Include="EmpresaDAO.cs" />
     <Compile Include="FornecedorDAO.cs" />
     <Compile Include="ClienteDAO.cs" />
