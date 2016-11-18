@@ -236,7 +236,7 @@
 
                 <ul id="MenuAdm" runat="server" class="nav navbar-nav side-nav" visible="false">
                     <li>
-                        <a href="../Empresa/EmpresaList.aspx"><i class="fa fa-truck"></i> Empresa Cadastrada</a>
+                        <a href="../Empresa/EmpresaCad.aspx"><i class="fa fa-truck"></i> Empresa Cadastrada</a>
                     </li>
                     <li>
                         <a href="../Funcionario/FuncionarioList.aspx"><i class="fa fa-fw fa-users"></i> Lista de Funcionários</a>

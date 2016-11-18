@@ -17,23 +17,8 @@ namespace PortalSCV.Empresa
             if (!IsPostBack)
             {
                 try
-                {
-
-                    if (Request.QueryString["Cod"] != null)
-                    {
-                        int id;
-                        if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
-                        {
-                            DetalharObj(id);
-                            btnSalvar.Visible = false;
-                        }
-                        else
-                        {
-                            Response.Redirect("EmpresaCad.aspx");
-                        }
-
-                    }
-                    else { }//Novo
+                { 
+                    DetalharObj();
                 }
                 catch (Exception ex)
                 {
@@ -42,14 +27,14 @@ namespace PortalSCV.Empresa
             }
         }
 
-        private void DetalharObj(int Id)
+        private void DetalharObj()
         {
 
             EmpresaModel oModel = new EmpresaModel();
             List<EmpresaModel> oListModel = new List<EmpresaModel>();
             EmpresaNegocios oNegocios = new EmpresaNegocios();
 
-            oModel.Codigo = Id;
+            oModel.CNPJ = System.Configuration.ConfigurationManager.AppSettings["CNPJ_EMPRESA"].ToString();
             oListModel = oNegocios.Listar(oModel);
             if (oListModel.Count > 0)
             {
@@ -72,7 +57,7 @@ namespace PortalSCV.Empresa
                 txtCelular.Text = oModel.Celular;
                 txtEmail.Text = oModel.Email;
                 txtEmail_Original.Text = oModel.Email;
-                cbStatus.SelectedValue = ((bool)oModel.Ativo).ToString();
+                
                 
             }
 
@@ -89,46 +74,43 @@ namespace PortalSCV.Empresa
                     EmpresaNegocios oNegocios = new EmpresaNegocios();
 
                     if (!string.IsNullOrEmpty(Empresa_Id.Value))
+                    {
                         oModel.Codigo = UTIL.UTIL.Parse<int>(Empresa_Id.Value);
-                    
-                    oModel.RazaoSocial = UTIL.UTIL.Parse<string>(txtRazaoSocial.Text);
-                    oModel.NomeFantasia = UTIL.UTIL.Parse<string>(txtNomeFantasia.Text);
-                    oModel.CNPJ = UTIL.UTIL.RetiraFormatacao(txtCNPJ.Text, new string[] { ".", "-", "/" });
 
-                    if (!string.IsNullOrEmpty(txtUF.Text))
-                        oModel.UF = UTIL.UTIL.Parse<string>(txtUF.Text);
+                        oModel.NomeFantasia = UTIL.UTIL.Parse<string>(txtNomeFantasia.Text);
+                       
+                        if (!string.IsNullOrEmpty(txtUF.Text))
+                            oModel.UF = UTIL.UTIL.Parse<string>(txtUF.Text);
 
-                    if (!string.IsNullOrEmpty(txtCidade.Text))
-                        oModel.Municipio = UTIL.UTIL.Parse<string>(txtCidade.Text);
+                        if (!string.IsNullOrEmpty(txtCidade.Text))
+                            oModel.Municipio = UTIL.UTIL.Parse<string>(txtCidade.Text);
 
-                    if (!string.IsNullOrEmpty(txtBairro.Text))
-                        oModel.Bairro = UTIL.UTIL.Parse<string>(txtBairro.Text);
+                        if (!string.IsNullOrEmpty(txtBairro.Text))
+                            oModel.Bairro = UTIL.UTIL.Parse<string>(txtBairro.Text);
 
-                    if (!string.IsNullOrEmpty(txtEndereco.Text))
-                        oModel.Endereco = UTIL.UTIL.Parse<string>(txtEndereco.Text);
+                        if (!string.IsNullOrEmpty(txtEndereco.Text))
+                            oModel.Endereco = UTIL.UTIL.Parse<string>(txtEndereco.Text);
 
-                    if (!string.IsNullOrEmpty(txtNumEndereco.Text))
-                        oModel.Numero = UTIL.UTIL.Parse<string>(txtNumEndereco.Text);
+                        if (!string.IsNullOrEmpty(txtNumEndereco.Text))
+                            oModel.Numero = UTIL.UTIL.Parse<string>(txtNumEndereco.Text);
 
-                    if (!string.IsNullOrEmpty(txtComplemento.Text))
-                        oModel.Complemento = UTIL.UTIL.Parse<string>(txtComplemento.Text);
+                        if (!string.IsNullOrEmpty(txtComplemento.Text))
+                            oModel.Complemento = UTIL.UTIL.Parse<string>(txtComplemento.Text);
 
-                    if (!string.IsNullOrEmpty(txtTelefone.Text))
-                        oModel.Telefone = UTIL.UTIL.RetiraFormatacao(UTIL.UTIL.Parse<string>(txtTelefone.Text), new string[] { "(", ")", " ", "-" });
+                        if (!string.IsNullOrEmpty(txtTelefone.Text))
+                            oModel.Telefone = UTIL.UTIL.RetiraFormatacao(UTIL.UTIL.Parse<string>(txtTelefone.Text), new string[] { "(", ")", " ", "-" });
 
-                    if (!string.IsNullOrEmpty(txtCelular.Text))
-                        oModel.Celular = UTIL.UTIL.RetiraFormatacao(UTIL.UTIL.Parse<string>(txtCelular.Text), new string[] { "(", ")", " ", "-" });
+                        if (!string.IsNullOrEmpty(txtCelular.Text))
+                            oModel.Celular = UTIL.UTIL.RetiraFormatacao(UTIL.UTIL.Parse<string>(txtCelular.Text), new string[] { "(", ")", " ", "-" });
 
-                    if (!string.IsNullOrEmpty(txtEmail.Text))
-                        oModel.Email = UTIL.UTIL.Parse<string>(txtEmail.Text);
+                        if (!string.IsNullOrEmpty(txtEmail.Text))
+                            oModel.Email = UTIL.UTIL.Parse<string>(txtEmail.Text);
+                        
+                        oModel = oNegocios.Salvar(oModel);
 
-                    oModel.Ativo = Boolean.Parse(cbStatus.SelectedValue);
-
-                    oModel = oNegocios.Salvar(oModel);
-
-                    Empresa_Id.Value = oModel.Codigo.ToString();
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
-
+                        Empresa_Id.Value = oModel.Codigo.ToString();
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
+                    }
                 }
             }
             catch (Exception ex)
@@ -145,34 +127,6 @@ namespace PortalSCV.Empresa
             EmpresaModel oModel = new EmpresaModel();
             List<EmpresaModel> oListModel = new List<EmpresaModel>();
             EmpresaNegocios oNegocios = new EmpresaNegocios();
-
-            if (string.IsNullOrEmpty(txtRazaoSocial.Text.Trim()))
-            {
-                MSG_ERROR += "- Razão Social. <br />";
-            }
-            
-            if (string.IsNullOrEmpty(txtCNPJ.Text.Trim()))
-            {
-                MSG_ERROR += "- CNPJ <br />";
-            }
-            else
-            {
-                if (!UTIL.UTIL.IsCnpj(txtCNPJ.Text.Trim()))
-                {
-                    MSG_ERROR += "- CNPJ inválido. <br />";
-                }
-                else if (string.IsNullOrEmpty(Empresa_Id.Value))
-                {
-                    //Valida se CNPJ já cadastrado
-                    oModel.CNPJ = UTIL.UTIL.RetiraFormatacao(txtCNPJ.Text, new string[] { ".", "-", "/" });
-                    oListModel = oNegocios.Listar(oModel);
-                    if (oListModel.Count > 0)
-                    {
-                        MSG_ERROR += "- CNPJ já cadastrado. <br />";
-                    }
-
-                }
-            }
             
             if (!UTIL.UTIL.ValidarEmail(txtEmail.Text.Trim()))
             {
