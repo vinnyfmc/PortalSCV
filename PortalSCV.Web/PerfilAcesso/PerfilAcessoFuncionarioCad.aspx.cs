@@ -19,24 +19,10 @@ namespace PortalSCV.Layout.PerfilAcesso
             {
                 try
                 {
-                    if (Request.QueryString["Cod"] != null)
-                    {
-                        int id;
-                        if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
-                        {
-                            CarregaComboPerfilAcesso();
-                            CarregaComboFuncionarios();
-                            DetalharObj(id);
-                        }
-                        else
-                        {
-                            Response.Redirect("PerfilAcessoCad.aspx");
-                        }
-                    }
-                    else {
-                        CarregaComboPerfilAcesso();
-                        CarregaComboFuncionarios();
-                    }//Novo
+                    
+                    CarregaComboPerfilAcesso();
+                    CarregaComboFuncionarios();
+           
                 }
                 catch (Exception ex)
                 {
@@ -88,23 +74,19 @@ namespace PortalSCV.Layout.PerfilAcesso
             }
         }
 
-        private void DetalharObj(int Id)
+        private void ListaPerfilAcesso(int IdFunc)
         {
 
             PerfilAcessoFuncionarioModel oModel = new PerfilAcessoFuncionarioModel();
             List<PerfilAcessoFuncionarioModel> oListModel = new List<PerfilAcessoFuncionarioModel>();
             PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
 
-            oModel.Codigo = Id;
+            oModel.Codigo_Funcionario = IdFunc;
             oListModel = oNegocios.Listar(oModel);
             if (oListModel.Count > 0)
             {
-                oModel = oListModel[0];
-
-                PerfilAcessoFuncionario_Id.Value = oModel.Codigo.ToString();
-
-                ddlPerfilAcesso.SelectedValue = oModel.Codigo_PerfilAcesso.ToString();
-                ddlFuncionario.SelectedValue = oModel.Codigo_Funcionario.ToString();
+                Rpt.DataSource = oListModel;
+                Rpt.DataBind();
              }
         }
 
@@ -119,8 +101,6 @@ namespace PortalSCV.Layout.PerfilAcesso
                     PerfilAcessoFuncionarioModel oModel = new PerfilAcessoFuncionarioModel();
                     PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
 
-                    if (!string.IsNullOrEmpty(PerfilAcessoFuncionario_Id.Value))
-                        oModel.Codigo = UTIL.UTIL.Parse<int>(PerfilAcessoFuncionario_Id.Value);
                     
                     if (!string.IsNullOrEmpty(ddlPerfilAcesso.SelectedValue))
                         oModel.Codigo_PerfilAcesso = Convert.ToInt32(ddlPerfilAcesso.SelectedValue);
@@ -130,13 +110,14 @@ namespace PortalSCV.Layout.PerfilAcesso
 
                     oModel = oNegocios.Salvar(oModel);
 
-                    PerfilAcessoFuncionario_Id.Value = oModel.Codigo.ToString();
+                    ListaPerfilAcesso((int)oModel.Codigo_Funcionario);
+
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
                 }
             }
             catch (Exception ex)
             {
-                string msg = "Ocorreu um erro ao salvar o perfil do usuário!";
+                string msg = "Ocorreu um erro ao salvar o perfil do funcionário!";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
             }
         }
@@ -160,6 +141,17 @@ namespace PortalSCV.Layout.PerfilAcesso
                 MSG_ERROR += "- Funcionário. <br />";
             }
 
+            if ((ddlPerfilAcesso.SelectedValue != "0") && (ddlFuncionario.SelectedValue != "0"))
+            {
+                oModel.Codigo_Funcionario = UTIL.UTIL.Parse<int>(ddlFuncionario.SelectedValue);
+                oModel.Codigo_PerfilAcesso = UTIL.UTIL.Parse<int>(ddlPerfilAcesso.SelectedValue);
+                oListModel = oNegocios.Listar(oModel);
+                if(oListModel.Count > 0 )
+                {
+                    MSG_ERROR += "- O Funcionário já possui este acesso! <br />";
+                }
+            }
+
             if (MSG_ERROR.Length > 0)
             {
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "CamposObrigatorios", "$(document).MensagemModal(3,'<strong>Informações obrigatórias:</strong><br/>" + MSG_ERROR + "');", true);
@@ -169,36 +161,51 @@ namespace PortalSCV.Layout.PerfilAcesso
             return Valido;
         }
 
-        protected void ddlFuncionario_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Rpt_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             try
             {
-                PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
-
-                List<PerfilAcessoFuncionarioModel> oList = new List<PerfilAcessoFuncionarioModel>();
-
-
-                int cdFunc = 0;
-                ddlPerfilAcesso.SelectedValue = cdFunc.ToString();
-                if (int.TryParse(ddlFuncionario.SelectedValue, out cdFunc)){
-
-                    oList = oNegocios.Listar(new PerfilAcessoFuncionarioModel{ Codigo_Funcionario = cdFunc });
-                    if (oList.Count > 0)
+                
+                if (e.CommandName == "Remover")
+                {
+                    int? Codigo_PerfilAcessoFuncionario = UTIL.UTIL.Parse<int?>(((HiddenField)e.Item.FindControl("PerfilAcessoFuncionario_Id")).Value);
+                    if(Codigo_PerfilAcessoFuncionario != null)
                     {
-                        ddlPerfilAcesso.SelectedValue = oList[0].Codigo_PerfilAcesso.ToString();
-                        PerfilAcessoFuncionario_Id.Value = oList[0].Codigo.ToString();
-                        btnExcluir.Visible = true;
+                        new PerfilAcessoFuncionarioNegocios().Excluir(new PerfilAcessoFuncionarioModel { Codigo = Codigo_PerfilAcessoFuncionario });
+                        ListaPerfilAcesso(UTIL.UTIL.Parse<int>(ddlFuncionario.SelectedValue));
                     }
                 }
 
-               
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                string msg = "Ocorreu um erro buscar o perfil de acesso do funcionário selecionado!";
+                string msg = "Ocorreu um erro ao remover o perfil do funcionário!";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
             }
         }
 
+        protected void ddlFuncionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Rpt.DataSource = null;
+                int cdFunc = 0;
+                if (int.TryParse(ddlFuncionario.SelectedValue, out cdFunc))
+                {
+                    if(cdFunc != 0)
+                    {
+                        ListaPerfilAcesso(cdFunc);
+                    }
+
+                }
+
+                Rpt.DataBind();
+            }
+            catch (Exception ex)
+            {
+                string msg = "Ocorreu um erro ao Listar os perfis do funcionário!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
+            }
+        }
     }
 }
