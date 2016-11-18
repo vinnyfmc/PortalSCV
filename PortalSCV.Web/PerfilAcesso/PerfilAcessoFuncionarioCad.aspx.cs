@@ -40,7 +40,8 @@ namespace PortalSCV.Layout.PerfilAcesso
                 }
                 catch (Exception ex)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+                    string msg = "Ocorreu um erro na inicialização da página!";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
                 }
             }
         }
@@ -61,7 +62,8 @@ namespace PortalSCV.Layout.PerfilAcesso
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+                string msg = "Ocorreu um erro preencher os perfis de acesso!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
             }
         }
 
@@ -81,7 +83,8 @@ namespace PortalSCV.Layout.PerfilAcesso
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+                string msg = "Ocorreu um erro preencher os funcionários!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
             }
         }
 
@@ -98,7 +101,7 @@ namespace PortalSCV.Layout.PerfilAcesso
             {
                 oModel = oListModel[0];
 
-                PerfilAcesso_Id.Value = oModel.Codigo.ToString();
+                PerfilAcessoFuncionario_Id.Value = oModel.Codigo.ToString();
 
                 ddlPerfilAcesso.SelectedValue = oModel.Codigo_PerfilAcesso.ToString();
                 ddlFuncionario.SelectedValue = oModel.Codigo_Funcionario.ToString();
@@ -116,8 +119,8 @@ namespace PortalSCV.Layout.PerfilAcesso
                     PerfilAcessoFuncionarioModel oModel = new PerfilAcessoFuncionarioModel();
                     PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
 
-                    if (!string.IsNullOrEmpty(PerfilAcesso_Id.Value))
-                        oModel.Codigo = UTIL.UTIL.Parse<int>(PerfilAcesso_Id.Value);
+                    if (!string.IsNullOrEmpty(PerfilAcessoFuncionario_Id.Value))
+                        oModel.Codigo = UTIL.UTIL.Parse<int>(PerfilAcessoFuncionario_Id.Value);
                     
                     if (!string.IsNullOrEmpty(ddlPerfilAcesso.SelectedValue))
                         oModel.Codigo_PerfilAcesso = Convert.ToInt32(ddlPerfilAcesso.SelectedValue);
@@ -127,13 +130,14 @@ namespace PortalSCV.Layout.PerfilAcesso
 
                     oModel = oNegocios.Salvar(oModel);
 
-                    PerfilAcesso_Id.Value = oModel.Codigo.ToString();
+                    PerfilAcessoFuncionario_Id.Value = oModel.Codigo.ToString();
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+                string msg = "Ocorreu um erro ao salvar o perfil do usuário!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
             }
         }
 
@@ -164,5 +168,37 @@ namespace PortalSCV.Layout.PerfilAcesso
 
             return Valido;
         }
+
+        protected void ddlFuncionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                PerfilAcessoFuncionarioNegocios oNegocios = new PerfilAcessoFuncionarioNegocios();
+
+                List<PerfilAcessoFuncionarioModel> oList = new List<PerfilAcessoFuncionarioModel>();
+
+
+                int cdFunc = 0;
+                ddlPerfilAcesso.SelectedValue = cdFunc.ToString();
+                if (int.TryParse(ddlFuncionario.SelectedValue, out cdFunc)){
+
+                    oList = oNegocios.Listar(new PerfilAcessoFuncionarioModel{ Codigo_Funcionario = cdFunc });
+                    if (oList.Count > 0)
+                    {
+                        ddlPerfilAcesso.SelectedValue = oList[0].Codigo_PerfilAcesso.ToString();
+                        PerfilAcessoFuncionario_Id.Value = oList[0].Codigo.ToString();
+                        btnExcluir.Visible = true;
+                    }
+                }
+
+               
+            }
+            catch(Exception ex)
+            {
+                string msg = "Ocorreu um erro buscar o perfil de acesso do funcionário selecionado!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'" + msg + "');", true);
+            }
+        }
+
     }
 }

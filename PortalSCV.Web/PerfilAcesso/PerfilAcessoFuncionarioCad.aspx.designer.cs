@@ -31,22 +31,13 @@ namespace PortalSCV.Layout.PerfilAcesso {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl AvisoPage;
         
         /// <summary>
-        /// PerfilAcesso_Id control.
+        /// PerfilAcessoFuncionario_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField PerfilAcesso_Id;
-        
-        /// <summary>
-        /// ddlPerfilAcesso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPerfilAcesso;
+        protected global::System.Web.UI.WebControls.HiddenField PerfilAcessoFuncionario_Id;
         
         /// <summary>
         /// ddlFuncionario control.
@@ -56,6 +47,24 @@ namespace PortalSCV.Layout.PerfilAcesso {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// ddlPerfilAcesso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPerfilAcesso;
         
         /// <summary>
         /// btnSalvar control.
