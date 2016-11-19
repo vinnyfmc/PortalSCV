@@ -55,7 +55,13 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Razão Social</label>
-                    <asp:TextBox runat="server" ID="txtRazaoSocial" CssClass="form-control" placeholder="Digite a razão social do Empresa"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtRazaoSocial" CssClass="form-control" Enabled="false" placeholder="Digite a razão social do Empresa"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>CNPJ</label>
+                    <asp:TextBox runat="server" ID="txtCNPJ" Enabled="false" CssClass="form-control cnpj"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -147,14 +153,9 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label>CNPJ</label>
-                    <asp:TextBox runat="server" ID="txtCNPJ" CssClass="form-control cnpj"></asp:TextBox>
-                </div>
-            </div>
+            
 
-            <div class="col-lg-2">
+            <%--<div class="col-lg-2">
                 <div class="form-group">
                     <label>Status</label>
                     <asp:DropDownList runat="server" CssClass="form-control" ID="cbStatus">
@@ -162,7 +163,7 @@
                         <asp:ListItem Text="Inativo" Value="False"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-            </div>
+            </div>--%>
         </div>
 
         <div style="float: right;">

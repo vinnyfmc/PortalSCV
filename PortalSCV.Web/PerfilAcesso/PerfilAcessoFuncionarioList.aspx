@@ -31,7 +31,7 @@
                     <table class="table table-bordered table-hover table-striped" id="tblList">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <%--<th>#</th>--%>
                                 <th>Perfil Acesso</th>
                                 <th>Funcionário</th>
                             </tr>
@@ -40,7 +40,7 @@
                             <asp:Repeater ID="Rpt" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td class="center"><a href="PerfilAcessoFuncionarioCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
+                                        <%--<td class="center"><a href="PerfilAcessoFuncionarioCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>--%>
                                         <td><%#DataBinder.Eval(Container.DataItem, "PerfilAcesso_Nome") %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Funcionario_Nome") %></td>
                                     </tr>

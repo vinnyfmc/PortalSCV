@@ -296,11 +296,12 @@ namespace PortalSCV.Pedido
                             {
                                 if (P.Codigo == null)
                                 {
+                                    int quant = (int)P.Quantidade;
                                     if ((model.Tipo == (int)PedidoModel.TipoPedido.Venda) || (model.Tipo == (int)PedidoModel.TipoPedido.Atendimento))
-                                        P.Quantidade = -1 * P.Quantidade;
+                                        quant = -1 * quant;
 
                                     //ALTERA ESTOQUE
-                                    string msgErro = new ProdutoNegocios().AlterarEstoque((int)P.Codigo_Produto, (int)P.Quantidade);
+                                    string msgErro = new ProdutoNegocios().AlterarEstoque((int)P.Codigo_Produto, quant);
                                     if (msgErro != "OK")
                                     {
                                         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Erro_Salvar", "$(document).MensagemModal(3,'" + msgErro + "');", true);

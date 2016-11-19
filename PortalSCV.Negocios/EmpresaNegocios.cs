@@ -28,8 +28,10 @@ namespace PortalSCV.Negocios
             }
             else
             {
-                return oModel = oDAO.Incluir(oModel);
+                //return oModel = oDAO.Incluir(oModel);
+                return null;
             }
+
         }
 
     }

@@ -50,5 +50,12 @@ namespace PortalSCV.Negocios
 
             return oPerfilAcessoFuncionarioModel;
         }
+
+        public void Excluir(PerfilAcessoFuncionarioModel oModel)
+        {
+            PerfilAcessoFuncionarioDAO oDAO = new PerfilAcessoFuncionarioDAO();
+            oDAO.Excluir(oModel);
+        }
+
     }
 }

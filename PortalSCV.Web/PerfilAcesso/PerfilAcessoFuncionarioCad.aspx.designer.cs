@@ -31,13 +31,13 @@ namespace PortalSCV.Layout.PerfilAcesso {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl AvisoPage;
         
         /// <summary>
-        /// PerfilAcesso_Id control.
+        /// ddlFuncionario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField PerfilAcesso_Id;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
         
         /// <summary>
         /// ddlPerfilAcesso control.
@@ -49,15 +49,6 @@ namespace PortalSCV.Layout.PerfilAcesso {
         protected global::System.Web.UI.WebControls.DropDownList ddlPerfilAcesso;
         
         /// <summary>
-        /// ddlFuncionario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
-        
-        /// <summary>
         /// btnSalvar control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,23 @@ namespace PortalSCV.Layout.PerfilAcesso {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
+        
+        /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// Rpt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Rpt;
     }
 }

@@ -56,5 +56,16 @@ namespace PortalSCV.DAO
 
             return banco.ExecQueryReturnOne<PerfilAcessoFuncionarioModel>(P, "PerfilAcessoFuncionario_PerfilAcessoFuncionario");
         }
+
+        public void Excluir(PerfilAcessoFuncionarioModel oModel)
+        {
+            DB banco = new DB();
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo)
+            };
+
+            banco.ExecQueryReturnOne<PerfilAcessoFuncionarioModel>(P, "PerfilAcessoFuncionario_Excluir");
+        }
+
     }
 }

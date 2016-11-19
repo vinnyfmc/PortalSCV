@@ -62,9 +62,7 @@ namespace PortalSCV.DAO
             DB banco = new DB();
             SqlParameter[] P = {
                 new SqlParameter("@Codigo", oModel.Codigo),
-                new SqlParameter("@RazaoSocial", oModel.RazaoSocial),
                 new SqlParameter("@NomeFantasia", oModel.NomeFantasia),
-                new SqlParameter("@CNPJ", oModel.CNPJ),
                 new SqlParameter("@Endereco", oModel.Endereco),
                 new SqlParameter("@Bairro", oModel.Bairro),
                 new SqlParameter("@Municipio", oModel.Municipio),
@@ -73,8 +71,7 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Numero", oModel.Numero),
                 new SqlParameter("@Telefone", oModel.Telefone),
                 new SqlParameter("@Celular", oModel.Celular),
-                new SqlParameter("@Email", oModel.Email),
-                new SqlParameter("@Ativo", oModel.Ativo)
+                new SqlParameter("@Email", oModel.Email)
             };
 
             return banco.ExecQueryReturnOne<EmpresaModel>(P, "Empresa_Alterar");
