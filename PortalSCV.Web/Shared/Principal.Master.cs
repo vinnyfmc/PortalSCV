@@ -46,8 +46,6 @@ namespace PortalSCV.Shared
                             Response.Redirect("~/Shared/Modulos.aspx");
                             break;
                     }
-
-                    
                 }
             }
         }

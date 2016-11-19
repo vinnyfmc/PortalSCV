@@ -89,7 +89,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Layout/images/vetmax.png" Width="80px" style="margin-left:50px;"/>
+                <a href="../Shared/Modulos.aspx">
+                  <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Layout/images/vetmax.png" Width="80px" style="margin-left:50px;" ToolTip="Retorna a tela de Módulos"/>
+                </a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
