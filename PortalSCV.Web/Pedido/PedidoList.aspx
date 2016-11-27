@@ -81,7 +81,7 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td class="center"><a href="PedidoCad.aspx?Pedido=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Tipo") %></td>
+                                        <td><%# TipoNome(Container.DataItem) %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "DataCriacao",  "{0:dd/MM/yyyy hh:mm:ss tt}") %></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "ValorTotal",  "{0:c}") %></td>
                                     </tr>

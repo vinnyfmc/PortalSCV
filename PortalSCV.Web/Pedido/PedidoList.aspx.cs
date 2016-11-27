@@ -35,5 +35,27 @@ namespace PortalSCV.Pedido
 
             }
         }
+
+        protected string TipoNome(object dataItem)
+        {
+            int Tipo = (int)DataBinder.Eval(dataItem, "Tipo");
+            string ret = string.Empty;
+
+            switch (Tipo)
+            {
+                case (int)PedidoModel.TipoPedido.Atendimento:
+                    ret = PedidoModel.TipoPedido.Atendimento.ToString();
+                    break;
+                case (int)PedidoModel.TipoPedido.Compra:
+                    ret = PedidoModel.TipoPedido.Compra.ToString();
+                    break;
+                case (int)PedidoModel.TipoPedido.Venda:
+                    ret = PedidoModel.TipoPedido.Venda.ToString();
+                    break;
+            }
+
+            return ret;
+        }
+
     }
 }
