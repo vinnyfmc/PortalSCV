@@ -26,7 +26,6 @@ namespace PortalSCV.Layout.Animal
                         if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
                         {
                             CarregaComboClientes();
-                            CarregaComboFuncionarios();
                             DetalharObj(id);
                         }
                         else
@@ -37,7 +36,9 @@ namespace PortalSCV.Layout.Animal
                     }
                     else {
                         CarregaComboClientes();
-                        CarregaComboFuncionarios();
+
+                        FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+                        CodigoFunc.Value = oFuncionario.Codigo.ToString();
                     }//Novo
                 }
                 catch (Exception ex)
@@ -63,8 +64,7 @@ namespace PortalSCV.Layout.Animal
                 Animal_Id.Value = oModel.Codigo.ToString();
 
                 ddlCliente.SelectedValue = oModel.Codigo_Cliente.ToString();
-                ddlFuncionario.SelectedValue = oModel.Codigo_Funcionario.ToString();
-
+            
                 txtNome.Text = oModel.Nome;
                 txtRaca.Text = oModel.Raca;
                 txtCor.Text = oModel.Cor;
@@ -73,6 +73,8 @@ namespace PortalSCV.Layout.Animal
                 ddlSexo.SelectedValue = oModel.Sexo.ToString();
                 txtObs.Text = oModel.DescricaoDoencas;
 
+                CodigoFunc.Value = oModel.Codigo_Funcionario.Value.ToString();
+                
                 if (oModel.DataNascimento != null)
                     txtDataNascimento.Text = ((DateTime)oModel.DataNascimento).ToString("dd/MM/yyyy");
                 
@@ -98,15 +100,16 @@ namespace PortalSCV.Layout.Animal
 
                     if (!string.IsNullOrEmpty(ddlCliente.SelectedValue))
                         oModel.Codigo_Cliente = Convert.ToInt32(ddlCliente.SelectedValue);
-
-                    if (!string.IsNullOrEmpty(ddlFuncionario.SelectedValue))
-                        oModel.Codigo_Funcionario = Convert.ToInt32(ddlFuncionario.SelectedValue);
+                    
+                    oModel.Codigo_Funcionario = Convert.ToInt32(CodigoFunc.Value);
 
                     oModel.Nome = UTIL.UTIL.Parse<string>(txtNome.Text);
                     oModel.Raca = UTIL.UTIL.Parse<string>(txtRaca.Text);
                     oModel.Cor = UTIL.UTIL.Parse<string>(txtCor.Text);
-                    oModel.Idade = UTIL.UTIL.Parse<int>(txtIdade.Text);
-                    oModel.Peso = Convert.ToDecimal(txtPeso.Text);
+                   
+                    if(!string.IsNullOrEmpty(txtPeso.Text))
+                        oModel.Peso = UTIL.UTIL.Parse<decimal>(txtPeso.Text);
+
                     oModel.Sexo = UTIL.UTIL.Parse<string>(ddlSexo.SelectedValue);
                     oModel.DescricaoDoencas = UTIL.UTIL.Parse<string>(txtObs.Text);
                     oModel.DataNascimento = UTIL.UTIL.Parse<DateTime>(txtDataNascimento.Text);
@@ -115,6 +118,7 @@ namespace PortalSCV.Layout.Animal
                     oModel = oNegocios.Salvar(oModel);
 
                     Animal_Id.Value = oModel.Codigo.ToString();
+                    txtIdade.Text = oModel.Idade.ToString();
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "SUCESSbtnSalvar_Click", "$(document).MensagemModal(1,'Registro salvo com <strong>sucesso</strong>!');", true);
                 }
             }
@@ -138,11 +142,6 @@ namespace PortalSCV.Layout.Animal
                 MSG_ERROR += "- Perfil de Acesso. <br />";
             }
 
-            if (ddlFuncionario.SelectedValue == "Selecione")
-            {
-                MSG_ERROR += "- Funcionário. <br />";
-            }
-
             if (string.IsNullOrEmpty(txtNome.Text.Trim()))
             {
                 MSG_ERROR += "- Nome. <br />";
@@ -158,14 +157,19 @@ namespace PortalSCV.Layout.Animal
                 MSG_ERROR += "- Cor. <br />";
             }
 
-            if (string.IsNullOrEmpty(txtIdade.Text.Trim()))
-            {
-                MSG_ERROR += "- Idade. <br />";
-            }
+            //if (string.IsNullOrEmpty(txtObs.Text.Trim()))
+            //{
+            //    MSG_ERROR += "- Descrição de Doenças/Observações. <br />";
+            //}
 
-            if (string.IsNullOrEmpty(txtObs.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtPeso.Text))
             {
-                MSG_ERROR += "- Descrição de Doenças/Observações. <br />";
+                decimal peso;
+                if (!decimal.TryParse(txtPeso.Text, out peso))
+                {
+                    MSG_ERROR += "- Peso inválido, digite ex: 7,2 (7 Kilo e 200 Gramas). <br />";
+                }
+
             }
 
             if (string.IsNullOrEmpty(txtDataNascimento.Text.Trim()))
@@ -182,29 +186,7 @@ namespace PortalSCV.Layout.Animal
 
             return Valido;
         }
-
-
-
-        private void CarregaComboFuncionarios()
-        {
-            try
-            {
-                FuncionarioNegocios oNegocios = new FuncionarioNegocios();
-                List<FuncionarioModel> oListModel = new List<FuncionarioModel>();
-
-                oListModel = oNegocios.ListarComboFuncionario(new FuncionarioModel());
-                oListModel.Insert(0, new FuncionarioModel() { Codigo = 0, Nome = "Selecione" });
-                ddlFuncionario.DataSource = oListModel;
-                ddlFuncionario.DataBind();
-
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
-            }
-        }
-
-
+        
         private void CarregaComboClientes()
         {
             try

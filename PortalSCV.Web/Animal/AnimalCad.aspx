@@ -21,7 +21,7 @@
     <div class="container-fluid">
 
         <div class="row">
-
+            <asp:HiddenField runat="server" ID="CodigoFunc" />
             <div class="col-lg-12">
                 <h1 class="page-header">Cadastro de Animal
                 </h1>
@@ -47,28 +47,22 @@
 
 
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>Cliente</label>
                     <asp:DropDownList ID="ddlCliente" runat="server" DataTextField="Nome" DataValueField="Codigo" AutoPostBack="true" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
-
-            <div class="col-lg-3">
-                <div class="form-group">
-                    <label>Funcionário</label>
-                    <asp:DropDownList ID="ddlFuncionario" runat="server" DataTextField="Nome" DataValueField="Codigo" AutoPostBack="true" CssClass="form-control"></asp:DropDownList>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Nome</label>
                     <asp:TextBox runat="server" ID="txtNome" CssClass="form-control" placeholder="Digite o nome do animal"></asp:TextBox>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            
 
             <div class="col-lg-3">
                 <div class="form-group">
@@ -81,22 +75,6 @@
                 <div class="form-group">
                     <label>Cor</label>
                     <asp:TextBox runat="server" ID="txtCor" CssClass="form-control" placeholder="Digite a cor do animal"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label>Idade</label>
-                    <asp:TextBox runat="server" ID="txtIdade" CssClass="form-control" placeholder="Idade do animal"></asp:TextBox>
-                </div>
-            </div>
-
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label>Peso</label>
-                    <asp:TextBox runat="server" ID="txtPeso" CssClass="form-control" placeholder="Peso do animal"></asp:TextBox>
                 </div>
             </div>
 
@@ -112,9 +90,34 @@
             </div>
 
             <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Peso</label>
+                    <asp:TextBox runat="server" ID="txtPeso" CssClass="form-control" placeholder="Peso do animal"></asp:TextBox>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col-lg-2">
                 <div runat="server" id="Div_DataNascimento" class="form-group">
                     <label>Data de Nascimento</label>
                     <asp:TextBox runat="server" ID="txtDataNascimento" CssClass="form-control date" placeholder="Ex 99/99/9999" TextMode="DateTime"></asp:TextBox>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Idade</label>
+                    <asp:UpdatePanel runat="server" ID="UpdatePanel1">
+                        <ContentTemplate>
+                            <asp:TextBox runat="server" ID="txtIdade" CssClass="form-control" Enabled="false"></asp:TextBox>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnSalvar" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                 </div>
             </div>
 
@@ -127,9 +130,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Descrição de Doenças/Observações</label>
@@ -138,6 +139,7 @@
             </div>
         </div>
 
+      
         <div style="float: right;">
             <asp:Button runat="server" ID="btnSalvar" CssClass="btn btn-primary" Text="Salvar" OnClick="btnSalvar_Click"></asp:Button>
         </div>

@@ -13,6 +13,15 @@ namespace PortalSCV.Layout.Animal {
     public partial class AnimalCad {
         
         /// <summary>
+        /// CodigoFunc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CodigoFunc;
+        
+        /// <summary>
         /// PanelAviso control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace PortalSCV.Layout.Animal {
         protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
         
         /// <summary>
-        /// ddlFuncionario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
-        
-        /// <summary>
         /// txtNome control.
         /// </summary>
         /// <remarks>
@@ -85,13 +85,13 @@ namespace PortalSCV.Layout.Animal {
         protected global::System.Web.UI.WebControls.TextBox txtCor;
         
         /// <summary>
-        /// txtIdade control.
+        /// ddlSexo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdade;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
         
         /// <summary>
         /// txtPeso control.
@@ -101,15 +101,6 @@ namespace PortalSCV.Layout.Animal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPeso;
-        
-        /// <summary>
-        /// ddlSexo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
         
         /// <summary>
         /// Div_DataNascimento control.
@@ -128,6 +119,24 @@ namespace PortalSCV.Layout.Animal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataNascimento;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// txtIdade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdade;
         
         /// <summary>
         /// cbStatus control.
