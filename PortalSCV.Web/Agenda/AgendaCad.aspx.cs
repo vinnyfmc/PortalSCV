@@ -20,9 +20,52 @@ namespace PortalSCV.Agenda
 
                 CarregaComboFuncionarios();
 
-                txData.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                if (Request.QueryString["Cod"] != null)
+                {
+                    int id;
+                    if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
+                    {
+                        DetalharObj(id);
+                    }
+                    else
+                    {
+                        Response.Redirect("AgendaCad.aspx");
+                    }
 
+                }else { //NOVO
+
+                    txData.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                }
             }
+        }
+
+        private void DetalharObj(int Id)
+        {
+
+            AgendaModel oModel = new AgendaModel();
+            List<AgendaModel> oListModel = new List<AgendaModel>();
+            AgendaNegocios oNegocios = new AgendaNegocios();
+
+            oModel.Codigo = Id;
+            oListModel = oNegocios.Listar(oModel);
+            if (oListModel.Count > 0)
+            {
+                oModel = oListModel[0];
+
+                Agenda_Id.Value = oModel.Codigo.ToString();
+
+                cmbAnimal.SelectedValue = oModel.Codigo_Animal.Value.ToString();
+                cmbFuncionario.SelectedValue = oModel.Codigo_Funcionario.ToString();
+                txData.Text = ((DateTime)oModel.DataHoraEntrada).ToString("yyyy-MM-dd");
+                txHoraIni.Text = ((DateTime)oModel.DataHoraEntrada).ToString("HH:mm");
+                txHoraFim.Text = ((DateTime)oModel.DataHoraSaida).ToString("HH:mm");
+                txValor.Text = ((Decimal)oModel.Valor).ToString("c2");
+                cbStatus.SelectedValue = ((bool)oModel.Ativo).ToString();
+                txAtendimento.Text = oModel.TipoAtendimento;
+                txDescricao.Text = oModel.DescricaoServico;
+                
+            }
+
         }
 
         private void CarregaComboFuncionarios()
