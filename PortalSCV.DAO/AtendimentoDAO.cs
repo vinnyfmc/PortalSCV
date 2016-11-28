@@ -18,10 +18,8 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Codigo", oModel.Codigo),
                 new SqlParameter("@Codigo_Agenda", oModel.Codigo_Agenda),
                 new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
-                new SqlParameter("@Codigo_Pedido", oModel.Codigo_Pedido),
                 new SqlParameter("@Descricao", oModel.Descricao),
-                new SqlParameter("@DataHora", oModel.DataHora),
-                new SqlParameter("@Valor", oModel.Valor)
+                new SqlParameter("@DataHora", oModel.DataHora)
             };
 
             return banco.ExecQuery<AtendimentoModel>(P, "Atendimento_Listar");
@@ -33,7 +31,6 @@ namespace PortalSCV.DAO
             SqlParameter[] P = {
                 new SqlParameter("@Codigo_Agenda", oModel.Codigo_Agenda),
                 new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
-                new SqlParameter("@Codigo_Pedido", oModel.Codigo_Pedido),
                 new SqlParameter("@Descricao", oModel.Descricao),
                 new SqlParameter("@DataHora", oModel.DataHora),
                 new SqlParameter("@Valor", oModel.Valor)
@@ -49,7 +46,6 @@ namespace PortalSCV.DAO
                 new SqlParameter("@Codigo", oModel.Codigo),
                 new SqlParameter("@Codigo_Agenda", oModel.Codigo_Agenda),
                 new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
-                new SqlParameter("@Codigo_Pedido", oModel.Codigo_Pedido),
                 new SqlParameter("@Descricao", oModel.Descricao),
                 new SqlParameter("@DataHora", oModel.DataHora),
                 new SqlParameter("@Valor", oModel.Valor)

@@ -16,5 +16,7 @@ namespace PortalSCV.Dominio
         public String Descricao { get; set; }
         public DateTime? DataHora { get; set; }
         public Decimal? Valor { get; set; }
+
+        public String Nome_Funcionario { get; set; }
     }
 }

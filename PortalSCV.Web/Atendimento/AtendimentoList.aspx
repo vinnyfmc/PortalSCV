@@ -71,8 +71,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Atendido por</th>
-                                <th>Número do Pedido</th>
                                 <th>Data</th>
+                                <th>Valor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,8 +81,8 @@
                                     <tr>
                                         <td class="center"><a href="AtendimentoCad.aspx?Cod=<%#DataBinder.Eval(Container.DataItem, "Codigo") %>"><%#DataBinder.Eval(Container.DataItem, "Codigo") %></a></td>
                                         <td><%#DataBinder.Eval(Container.DataItem, "Nome_Funcionario") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Numero_Pedido") %></td>
-                                        <td><%#DataBinder.Eval(Container.DataItem, "Data") %></td>
+                                        <td><%#DataBinder.Eval(Container.DataItem, "DataHora") %></td>
+                                        <td><%# String.Format("{0:f2}",DataBinder.Eval(Container.DataItem, "Valor"))%></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>

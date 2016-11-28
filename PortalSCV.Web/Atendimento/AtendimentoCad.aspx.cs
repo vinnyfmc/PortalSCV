@@ -17,21 +17,76 @@ namespace PortalSCV.Atendimento
         {
             if (!IsPostBack)
             {
-                CarregaComboFuncionarios();
+                CarregaAgendamentos();
+
+                if (Request.QueryString["Cod"] != null)
+                {
+                    int id;
+                    if (int.TryParse(Request.QueryString["Cod"].ToString(), out id))
+                    {
+                        DetalharObj(id);
+                    }
+                    else
+                    {
+                        Response.Redirect("AtendimentoCad.aspx");
+                    }
+
+                }
+                else
+                { //NOVO
+
+                    FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
+                    CodigoFunc.Value = oFuncionario.Codigo.ToString();
+
+                    txData.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                    txHora.Text = DateTime.Now.ToString("HH:mm");
+                }
+
             }
         }
 
-        private void CarregaComboFuncionarios()
+        private void DetalharObj(int Id)
+        {
+
+            AtendimentoModel oModel = new AtendimentoModel();
+            List<AtendimentoModel> oListModel = new List<AtendimentoModel>();
+            AtendimentoNegocios oNegocios = new AtendimentoNegocios();
+
+            oModel.Codigo = Id;
+            oListModel = oNegocios.Listar(oModel);
+            if (oListModel.Count > 0)
+            {
+                oModel = oListModel[0];
+
+                Atendimento_Id.Value = oModel.Codigo.ToString();
+
+                ddlAgenda.SelectedValue = oModel.Codigo_Agenda.Value.ToString();
+                CodigoFunc.Value = oModel.Codigo_Funcionario.ToString();
+                
+                txData.Text = ((DateTime)oModel.DataHora).ToString("yyyy-MM-dd");
+                txHora.Text = ((DateTime)oModel.DataHora).ToString("HH:mm");
+                txValor.Text = ((Decimal)oModel.Valor).ToString("c2");
+                txValor.Focus();
+                txtDescricao.Text = oModel.Descricao;
+
+            }
+
+        }
+
+        private void CarregaAgendamentos()
         {
             try
             {
-                FuncionarioNegocios oNegocios = new FuncionarioNegocios();
-                List<FuncionarioModel> oListModel = new List<FuncionarioModel>();
+                AgendaModel oParam = new AgendaModel();
+                AgendaNegocios oNegocios = new AgendaNegocios();
+                List<AgendaModel> oListModel = new List<AgendaModel>();
 
-                oListModel = oNegocios.ListarComboFuncionario(new FuncionarioModel());
-                oListModel.Insert(0, new FuncionarioModel() { Codigo = 0, Nome = "Selecione" });
-                ddlFuncionario.DataSource = oListModel;
-                ddlFuncionario.DataBind();
+                oParam.DataHoraEntrada = UTIL.UTIL.Parse<DateTime>(DateTime.Now.ToString("dd/MM/yyyy"));
+        
+                oListModel = oNegocios.Listar(oParam);
+                ddlAgenda = UTIL.UTIL.PreencheSelect(oListModel, ddlAgenda, "Nome_Agendamento", "Codigo", "Selecione");
+               
+
             }
             catch (Exception ex)
             {
@@ -51,11 +106,13 @@ namespace PortalSCV.Atendimento
                     if (!string.IsNullOrEmpty(Atendimento_Id.Value))
                         oModel.Codigo = UTIL.UTIL.Parse<int>(Atendimento_Id.Value);
 
-                    oModel.Codigo_Agenda = UTIL.UTIL.Parse<int>(ddlAgenda.SelectedValue);
-                    oModel.Codigo_Funcionario = UTIL.UTIL.Parse<int>(ddlFuncionario.SelectedValue);
-                    oModel.Codigo_Pedido = UTIL.UTIL.Parse<int>(ddlPedido.SelectedValue);
+                    int? codAgenda = UTIL.UTIL.Parse<int?>(ddlAgenda.SelectedValue);
+                    if ((codAgenda != null) && (codAgenda > 0))
+                        oModel.Codigo_Agenda = UTIL.UTIL.Parse<int>(ddlAgenda.SelectedValue);
+
+                    oModel.Codigo_Funcionario = UTIL.UTIL.Parse<int>(CodigoFunc.Value);
                     oModel.Descricao = UTIL.UTIL.Parse<String>(txtDescricao.Text);
-                    oModel.DataHora = UTIL.UTIL.Parse<DateTime>(txDataHora.Text);
+                    oModel.DataHora = UTIL.UTIL.Parse<DateTime>(txData.Text + " " + txHora.Text);
                     oModel.Valor = UTIL.UTIL.Parse<Decimal>(txValor.Text);
 
                     oModel = oNegocios.Salvar(oModel);
@@ -79,29 +136,19 @@ namespace PortalSCV.Atendimento
 
             DateTime dt;
 
+            int? codAgenda = UTIL.UTIL.Parse<int?>(ddlAgenda.SelectedValue);
+            if ((codAgenda == null) || (codAgenda <= 0))
+            {
+                MSG_ERROR += "- Selecione um agendamento, caso não exista, crie um agendamento primeiro!<br />";
+                DataValida = false;
+            }
 
-            if (!DateTime.TryParse(txDataHora.Text, out dt))
+            if (!DateTime.TryParse(txData.Text, out dt))
             {
                 MSG_ERROR += "- Data Inválida<br />";
                 DataValida = false;
             }
-
-
-            if (string.IsNullOrEmpty(ddlAgenda.SelectedValue))
-            {
-                MSG_ERROR += "- Selecione uma Agenda<br />";
-            }
-
-            if (string.IsNullOrEmpty(ddlFuncionario.SelectedValue))
-            {
-                MSG_ERROR += "- Selecione um Funcionario<br />";
-            }
-
-            if (string.IsNullOrEmpty(ddlPedido.SelectedValue))
-            {
-                MSG_ERROR += "- Selecione um Pedido<br />";
-            }
-
+            
             if (string.IsNullOrEmpty(txtDescricao.Text))
             {
                 MSG_ERROR += "- Descreva o serviço<br />";
@@ -132,5 +179,27 @@ namespace PortalSCV.Atendimento
             return Valido;
         }
 
+        protected void ddlAgenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int? codAgenda = UTIL.UTIL.Parse<int?>(ddlAgenda.SelectedValue);
+
+            if ((codAgenda != null) && (codAgenda > 0))
+            {
+                Codigo_Agenda.Value = codAgenda.ToString();
+
+                String[] info = ddlAgenda.SelectedItem.Text.Split('|');
+                txData.Text = UTIL.UTIL.Parse<DateTime>(info[0].Trim()).ToString("yyyy-MM-dd");
+                txHora.Text = UTIL.UTIL.Parse<DateTime>(info[0].Trim()).ToString("HH:mm");
+                txValor.Text = info[2].Trim();
+                txValor.Focus();
+            }
+            else {
+                Codigo_Agenda.Value = "";
+                txData.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                txHora.Text = DateTime.Now.ToString("HH:mm");
+                txValor.Text = "";
+            }
+
+        }
     }
 }

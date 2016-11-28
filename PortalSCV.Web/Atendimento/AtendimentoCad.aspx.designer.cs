@@ -13,6 +13,15 @@ namespace PortalSCV.Atendimento {
     public partial class AtendimentoCad {
         
         /// <summary>
+        /// CodigoFunc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CodigoFunc;
+        
+        /// <summary>
         /// PanelAvisos control.
         /// </summary>
         /// <remarks>
@@ -49,31 +58,31 @@ namespace PortalSCV.Atendimento {
         protected global::System.Web.UI.WebControls.DropDownList ddlAgenda;
         
         /// <summary>
-        /// ddlFuncionario control.
+        /// Codigo_Agenda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
+        protected global::System.Web.UI.WebControls.HiddenField Codigo_Agenda;
         
         /// <summary>
-        /// ddlPedido control.
+        /// txData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPedido;
+        protected global::System.Web.UI.WebControls.TextBox txData;
         
         /// <summary>
-        /// txDataHora control.
+        /// txHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txDataHora;
+        protected global::System.Web.UI.WebControls.TextBox txHora;
         
         /// <summary>
         /// txValor control.

@@ -40,8 +40,12 @@ namespace PortalSCV.Dominio
         public String Celular_Funcionario { get; set; }
         public String Email_Funcionario { get; set; }
         public Boolean? Ativo_Funcionario { get; set; }
-        
 
+        public String Nome_Agendamento
+        {
+            get { return ((DateTime)DataHoraEntrada).ToString("dd/MM/yyyy HH:mm") + " | " + Nome_Animal + " | " + ((Decimal)Valor).ToString("C"); }
+        }
+        
 
     }
 }

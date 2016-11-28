@@ -25,7 +25,6 @@ namespace PortalSCV.Atendimento
                     oList = oNegocios.Listar(new AtendimentoModel());
                     if (oList.Count > 0)
                     {
-                        btnNovo.Visible = false;
                         Rpt.DataSource = oList;
                         Rpt.DataBind();
                     }
