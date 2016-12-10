@@ -4,7 +4,7 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
-            $(".money").maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '', decimal: ',', affixesStay: false });
+            $(".money").maskMoney({ allowNegative: false, thousands: '', decimal: ',', affixesStay: false });
             $('.hora').mask('00:00');
 
         });
@@ -52,7 +52,7 @@
             </div>--%>
              <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Animal</label>
+                    <label>Cliente - Animal</label>
                     <asp:DropDownList runat="server" ID="cmbAnimal" CssClass="form-control" Width="100%"></asp:DropDownList>
                 </div>
             </div>

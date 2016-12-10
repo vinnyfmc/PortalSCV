@@ -59,7 +59,7 @@ namespace PortalSCV.Agenda
                 txData.Text = ((DateTime)oModel.DataHoraEntrada).ToString("yyyy-MM-dd");
                 txHoraIni.Text = ((DateTime)oModel.DataHoraEntrada).ToString("HH:mm");
                 txHoraFim.Text = ((DateTime)oModel.DataHoraSaida).ToString("HH:mm");
-                txValor.Text = ((Decimal)oModel.Valor).ToString("c2");
+                txValor.Text = ((Decimal)oModel.Valor).ToString("n2");
                 cbStatus.SelectedValue = ((bool)oModel.Ativo).ToString();
                 txAtendimento.Text = oModel.TipoAtendimento;
                 txDescricao.Text = oModel.DescricaoServico;

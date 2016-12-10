@@ -61,7 +61,7 @@ namespace PortalSCV.Negocios
                     if (Quantidade <= Produto.QuantidadeEstoque_Minima)
                     {
                         string CorpoEmail = string.Format("Produto: {0} <BR />Limite minimo em estoque: {1} <BR/>Quantidade em estoque: {2} <BR/>Aviso: Providencie com urgência a compra deste produto para manter o estoque abastecido.", Produto.Descricao, Produto.QuantidadeEstoque_Minima.ToString(), Produto.QuantidadeEstoque);
-                        UTIL.UTIL.EnviarEmail("vinnyfmc@gmail.com", "Reposição de produto - Aviso Automático", CorpoEmail);
+                        UTIL.UTIL.EnviarEmail("portalscv@gmail.com", "Reposição de produto - Aviso Automático", CorpoEmail);
                     }
                 }
 

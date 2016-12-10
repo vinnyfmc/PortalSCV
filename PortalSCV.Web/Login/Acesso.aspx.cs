@@ -46,10 +46,19 @@ namespace PortalSCV
 
                     if (oModel.Codigo.HasValue)
                     {
-                        Session.Add("objFuncionario", oModel);
-                        Response.Redirect("~/Shared/Modulos.aspx", false);
-                        Context.ApplicationInstance.CompleteRequest();
-                        //Response.Redirect("~/Shared/ShopAtendimento.aspx");
+                        if (oModel.Ativo == true)
+                        {
+
+                            Session.Add("objFuncionario", oModel);
+                            Response.Redirect("~/Shared/Modulos.aspx", false);
+                            Context.ApplicationInstance.CompleteRequest();
+                            //Response.Redirect("~/Shared/ShopAtendimento.aspx");
+                        }
+                        else
+                        {
+                            txAviso.Visible = true;
+                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Inativo", "$(document).MensagemModal(3,'<strong>Funcionário inativo no sistema.</ strong >');", true);
+                        }
                     }
                     else
                     {

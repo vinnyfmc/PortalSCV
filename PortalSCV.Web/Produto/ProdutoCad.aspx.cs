@@ -74,7 +74,7 @@ namespace PortalSCV.Produto
                 cdFuncionario.Text = oModel.Codigo_Funcionario.ToString();
                 cmbFornecedor.SelectedValue = oModel.Codigo_Fornecedor.ToString();
                 if (oModel.DataValidade != null)
-                    txDataValidade.Text = ((DateTime)oModel.DataValidade).ToString("dd/MM/yyyy");
+                    txDataValidade.Text = ((DateTime)oModel.DataValidade).ToString("yyyy-MM-dd");
                 txValorCompra.Text = ((Decimal)oModel.PrecoCompra).ToString("n2");
                 txValorVenda.Text = ((Decimal)oModel.PrecoVenda).ToString("n2");
                 if (oModel.QuantidadeEstoque_Minima != null)

@@ -220,16 +220,13 @@ namespace PortalSCV.Layout.Funcionario
                 MSG_ERROR += "- Nome. <br />";
             }
 
-            if (string.IsNullOrEmpty(txtDataNascimento.Text.Trim()))
-            {
-                MSG_ERROR += "- Data de Nascimento. <br />";
-            }
 
             if (string.IsNullOrEmpty(txtCPF.Text.Trim()))
             {
-                MSG_ERROR += "- CPF";
+                MSG_ERROR += "- CPF. <br />";
             }
-            else { 
+            else
+            {
                 if (!UTIL.UTIL.IsCpf(txtCPF.Text.Trim()))
                 {
                     MSG_ERROR += "- CPF inválido. <br />";
@@ -251,6 +248,11 @@ namespace PortalSCV.Layout.Funcionario
                 }
             }
 
+            if (string.IsNullOrEmpty(txtDataNascimento.Text.Trim()))
+            {
+                MSG_ERROR += "- Data de Nascimento. <br />";
+            }
+            
             if (string.IsNullOrEmpty(txtEndereco.Text.Trim()))
             {
                 MSG_ERROR += "- Endereço. <br />";

@@ -80,7 +80,7 @@
             <div class="col-lg-2">
                 <div class="form-group">
                     <label>UF</label>
-                    <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF" ></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUF" CssClass="form-control" placeholder="Digite a UF" MaxLength="2" ></asp:TextBox>
                 </div>
             </div>
 
