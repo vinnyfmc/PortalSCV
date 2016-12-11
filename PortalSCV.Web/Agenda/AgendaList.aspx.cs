@@ -66,6 +66,7 @@ namespace PortalSCV.Agenda
                     AgendaModel oModel = new AgendaModel();
 
                     oModel.DataHoraEntrada = UTIL.UTIL.Parse<DateTime>(txData.Text);
+                    oModel.DataHoraSaida = ((DateTime)oModel.DataHoraEntrada).AddDays(1);
                     oModel.Codigo_Funcionario = UTIL.UTIL.Parse<int?>(cmbFuncionario.SelectedValue);
                     oModel.Ativo = true;
 
@@ -73,6 +74,10 @@ namespace PortalSCV.Agenda
                     if(oListModel.Count > 0)
                     {
                         Rpt.DataSource = oListModel;
+                        Rpt.DataBind();
+                    }else
+                    {
+                        Rpt.DataSource = new List<AgendaModel>();
                         Rpt.DataBind();
                     }
                 }

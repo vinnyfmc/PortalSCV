@@ -17,6 +17,24 @@ namespace PortalSCV.Negocios
             return oDAO.Listar(oModel);
         }
 
+        public List<AgendaModel> ListarParaCombo(AgendaModel oModel)
+        {
+            AgendaDAO oDAO = new AgendaDAO();
+            return oDAO.ListarParaCombo(oModel);
+        }
+
+        public List<AgendaModel> VerificarAgendamento(AgendaModel oModel)
+        {
+            AgendaDAO oDAO = new AgendaDAO();
+            return oDAO.VerificarAgendamento(oModel);
+        }
+
+        public AgendaModel Excluir(AgendaModel oModel)
+        {
+            AgendaDAO oDAO = new AgendaDAO();
+            return oDAO.Excluir(oModel);
+        }
+
         public AgendaModel Salvar(AgendaModel oModel)
         {
             AgendaDAO oDAO = new AgendaDAO();

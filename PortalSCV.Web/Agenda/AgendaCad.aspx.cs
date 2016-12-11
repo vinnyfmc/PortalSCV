@@ -33,7 +33,7 @@ namespace PortalSCV.Agenda
                     }
 
                 }else { //NOVO
-
+                    btnCalcelar.Visible = false;
                     txData.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 }
             }
@@ -232,10 +232,11 @@ namespace PortalSCV.Agenda
                 List<AgendaModel> oListModel = new List<AgendaModel>();
                 AgendaNegocios oNegocios = new AgendaNegocios();
 
-                oListModel = oNegocios.Listar(new AgendaModel() { DataHoraEntrada = DateTime.Parse(txData.Text + " " + txHoraIni.Text), Codigo_Funcionario = UTIL.UTIL.Parse<int>(cmbFuncionario.SelectedValue) });
+                oListModel = oNegocios.VerificarAgendamento(new AgendaModel() { DataHoraEntrada = DateTime.Parse(txData.Text + " " + txHoraIni.Text), Codigo_Funcionario = UTIL.UTIL.Parse<int?>(cmbFuncionario.SelectedValue) });
                 if (oListModel.Count > 0)
                 {
-                    MSG_ERROR += "- Este horário já está ocupado para o Funcionário selecionado.<br />";
+                    if(oListModel[0].Codigo != UTIL.UTIL.Parse<int?>(Agenda_Id.Value))
+                        MSG_ERROR += "- Este horário já está ocupado para o Funcionário selecionado.<br />";
                 }
             }
 
@@ -248,5 +249,30 @@ namespace PortalSCV.Agenda
             return Valido;
         }
 
+        protected void btnCalcelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                AgendaModel oModel = new AgendaModel();
+                AgendaNegocios oNegocios = new AgendaNegocios();
+
+                if (!string.IsNullOrEmpty(Agenda_Id.Value))
+                {
+                    oModel.Codigo = UTIL.UTIL.Parse<int>(Agenda_Id.Value);
+                    
+                    oModel = oNegocios.Excluir(oModel);
+                    
+                    if (oModel.Codigo.HasValue)
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "btnExcluir_Click", "$(document).MensagemModal(2,'Este agendamento já está vinculado a um atendimento');", true);
+                    else
+                        Response.Redirect("AgendaList.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+            }
+        }
     }
 }

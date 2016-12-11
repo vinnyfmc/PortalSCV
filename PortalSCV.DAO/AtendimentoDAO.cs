@@ -25,6 +25,17 @@ namespace PortalSCV.DAO
             return banco.ExecQuery<AtendimentoModel>(P, "Atendimento_Listar");
         }
 
+        public AtendimentoModel Excluir(AtendimentoModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo)
+            };
+
+            return banco.ExecQueryReturnOne<AtendimentoModel>(P, "Atendimento_Excluir");
+        }
+
         public AtendimentoModel Incluir(AtendimentoModel oModel)
         {
             DB banco = new DB();

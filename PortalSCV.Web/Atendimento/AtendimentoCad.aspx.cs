@@ -17,7 +17,7 @@ namespace PortalSCV.Atendimento
         {
             if (!IsPostBack)
             {
-                CarregaAgendamentos();
+                
 
                 if (Request.QueryString["Cod"] != null)
                 {
@@ -34,6 +34,10 @@ namespace PortalSCV.Atendimento
                 }
                 else
                 { //NOVO
+
+                    CarregaAgendamentos();
+
+                    btnCalcelar.Visible = false;
 
                     FuncionarioModel oFuncionario = (FuncionarioModel)Session["objFuncionario"];
                     CodigoFunc.Value = oFuncionario.Codigo.ToString();
@@ -69,6 +73,16 @@ namespace PortalSCV.Atendimento
                 txValor.Focus();
                 txtDescricao.Text = oModel.Descricao;
 
+
+                AgendaModel oParam = new AgendaModel();
+                AgendaNegocios oNegocios_Agenda = new AgendaNegocios();
+                List<AgendaModel> oListModel_Agenda = new List<AgendaModel>();
+                oParam.Codigo = oModel.Codigo_Agenda;
+                oListModel_Agenda = oNegocios_Agenda.Listar(oParam);
+                ddlAgenda = UTIL.UTIL.PreencheSelect(oListModel_Agenda, ddlAgenda, "Nome_Agendamento", "Codigo", "Selecione");
+                ddlAgenda.Enabled = false;
+
+
             }
 
         }
@@ -80,10 +94,8 @@ namespace PortalSCV.Atendimento
                 AgendaModel oParam = new AgendaModel();
                 AgendaNegocios oNegocios = new AgendaNegocios();
                 List<AgendaModel> oListModel = new List<AgendaModel>();
-
-                oParam.DataHoraEntrada = UTIL.UTIL.Parse<DateTime>(DateTime.Now.ToString("dd/MM/yyyy"));
-        
-                oListModel = oNegocios.Listar(oParam);
+                
+                oListModel = oNegocios.ListarParaCombo(oParam);
                 ddlAgenda = UTIL.UTIL.PreencheSelect(oListModel, ddlAgenda, "Nome_Agendamento", "Codigo", "Selecione");
                
 
@@ -200,6 +212,28 @@ namespace PortalSCV.Atendimento
                 txValor.Text = "";
             }
 
+        }
+
+        protected void btnCalcelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                AtendimentoModel oModel = new AtendimentoModel();
+                AtendimentoNegocios oNegocios = new AtendimentoNegocios();
+
+                if (!string.IsNullOrEmpty(Atendimento_Id.Value))
+                {
+                    oModel.Codigo = UTIL.UTIL.Parse<int>(Atendimento_Id.Value);
+
+                    oModel = oNegocios.Excluir(oModel);
+                    Response.Redirect("AtendimentoList.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERROR", "$(document).MensagemModal(3,'Ocorreu um erro inesperado! Mensagem = " + new JavaScriptSerializer().Serialize(ex.Message.ToString()) + "');", true);
+            }
         }
     }
 }

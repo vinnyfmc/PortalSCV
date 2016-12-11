@@ -17,6 +17,12 @@ namespace PortalSCV.Negocios
             return oDAO.Listar(oModel);
         }
 
+        public AtendimentoModel Excluir(AtendimentoModel oModel)
+        {
+            AtendimentoDAO oDAO = new AtendimentoDAO();
+            return oDAO.Excluir(oModel);
+        }
+
         public AtendimentoModel Salvar(AtendimentoModel oModel)
         {
             AtendimentoDAO oDAO = new AtendimentoDAO();

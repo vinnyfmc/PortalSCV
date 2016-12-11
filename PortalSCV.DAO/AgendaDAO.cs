@@ -27,6 +27,40 @@ namespace PortalSCV.DAO
             return banco.ExecQuery<AgendaModel>(P, "Agenda_Listar");
         }
 
+        public List<AgendaModel> ListarParaCombo(AgendaModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                
+            };
+
+            return banco.ExecQuery<AgendaModel>(P, "Agenda_ListarParaCombo");
+        }
+
+        public List<AgendaModel> VerificarAgendamento(AgendaModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo_Funcionario", oModel.Codigo_Funcionario),
+                new SqlParameter("@DataInicio", oModel.DataHoraEntrada)
+            };
+
+            return banco.ExecQuery<AgendaModel>(P, "Agenda_VerificarAgendamento");
+        }
+
+        public AgendaModel Excluir(AgendaModel oModel)
+        {
+            DB banco = new DB();
+
+            SqlParameter[] P = {
+                new SqlParameter("@Codigo", oModel.Codigo)
+            };
+
+            return banco.ExecQueryReturnOne<AgendaModel>(P, "Agenda_Excluir");
+        }
+
         public AgendaModel Incluir(AgendaModel oModel)
         {
             DB banco = new DB();

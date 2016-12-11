@@ -38,6 +38,8 @@
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="btnSalvar" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnCalcelar" EventName="Click" />
+                        
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -115,7 +117,7 @@
         </div>
 
         <div style="float:right;">
-            <asp:Button runat="server" ID="btnCalcelar" CssClass="btn btn-danger" Text="Cancelar"></asp:Button>
+            <asp:Button runat="server" ID="btnCalcelar" CssClass="btn btn-danger" Text="Excluir" OnClick="btnCalcelar_Click"></asp:Button>
             <asp:Button runat="server" ID="btnSalvar" CssClass="btn btn-primary" Text="Salvar" OnClick="btnSalvar_Click"></asp:Button>
         </div>
 
