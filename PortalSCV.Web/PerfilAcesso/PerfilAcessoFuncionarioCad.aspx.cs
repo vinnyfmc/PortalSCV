@@ -87,7 +87,11 @@ namespace PortalSCV.Layout.PerfilAcesso
             {
                 Rpt.DataSource = oListModel;
                 Rpt.DataBind();
-             }
+            }else
+            {
+                Rpt.DataSource = new List<PerfilAcessoFuncionarioModel>();
+                Rpt.DataBind();
+            }
         }
 
 
