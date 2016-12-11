@@ -22,17 +22,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row" style="margin-top:20px">
+<%--    <div class="row" style="margin-top:20px">
         <div class="col-lg-4">
             <img src="../Layout/images/vetmax.png" alt="Clínica e Petshop Vetmax" width="160px" height="100px" />
         </div>
-    </div>
+    </div>--%>
 
     <div class="row" style="margin-top:5%">
         <div class="col-lg-4 col-lg-offset-3">
             <div class="panel panel-default">
 
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading" align="center">
+                    <img src="../Layout/images/vetmax.png" width="140px" height="100px" />
+                </div>
                 
                 <div class="panel-body">
                     <asp:UpdatePanel runat="server" ID="PanelAviso">
